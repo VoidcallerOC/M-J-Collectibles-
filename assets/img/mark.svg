@@ -1,0 +1,19 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="M&amp;J arcade joystick mark">
+  <!-- base -->
+  <ellipse cx="60" cy="96" rx="40" ry="12" fill="#0F8478"/>
+  <path d="M20 96c0-6.6 17.9-12 40-12s40 5.4 40 12v6c0 6.6-17.9 12-40 12S20 108.6 20 102z" fill="#0B5F56"/>
+  <!-- shaft -->
+  <rect x="53" y="44" width="14" height="46" rx="7" fill="#191410"/>
+  <!-- ball top -->
+  <circle cx="60" cy="34" r="22" fill="#E9552B"/>
+  <circle cx="60" cy="34" r="22" fill="url(#g)"/>
+  <circle cx="52" cy="26" r="6" fill="#fff" fill-opacity=".55"/>
+  <!-- spark -->
+  <path d="M60 6l3.2 8.4L72 12l-5 7.4 8.6 2.6-8.6 2.6 5 7.4-8.8-2.4L60 46l-3.2-8.4L48 40l5-7.4L44.4 30 53 27.4 48 20l8.8 2.4z" fill="#F2B33D" fill-opacity=".0"/>
+  <defs>
+    <radialGradient id="g" cx="0.4" cy="0.35" r="0.75">
+      <stop offset="0" stop-color="#FF7A4D"/>
+      <stop offset="1" stop-color="#C63E1B"/>
+    </radialGradient>
+  </defs>
+</svg>
