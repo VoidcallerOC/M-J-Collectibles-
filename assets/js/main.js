@@ -137,7 +137,6 @@
     window.addEventListener('pointermove', function (e) {
       tx = e.clientX; ty = e.clientY;
       sprite.classList.add('on');
-      sprite.classList.remove('thrust'); void sprite.offsetWidth; sprite.classList.add('thrust');
       if (!raf) raf = requestAnimationFrame(frame);
     }, { passive: true });
 
