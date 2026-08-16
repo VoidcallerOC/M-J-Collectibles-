@@ -6,7 +6,7 @@
   <script>document.documentElement.classList.add('js');</script>
   <title>M&amp;J Video Games &amp; Collectibles — Retro Games &amp; Memorabilia | Southington, CT</title>
   <meta name="description" content="M&amp;J Video Games &amp; Collectibles in Southington, CT — retro &amp; modern video games, consoles, Funko Pops, action figures, trading cards, and vintage wrestling &amp; sports memorabilia. Buy · Sell · Trade. For all your retro-gaming and memorabilia needs." />
-  <meta name="theme-color" content="#241C40" />
+  <meta name="theme-color" content="#0a0e1a" />
   <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
   <link rel="apple-touch-icon" href="/assets/img/favicon.svg" />
   <link rel="canonical" href="https://mjvideogames.com/" />
@@ -21,7 +21,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="/assets/css/styles.css" />
 
@@ -54,251 +54,244 @@
 </head>
 <body>
 
-  <!-- ===================== MOBILE TOPBAR ===================== -->
-  <header class="topbar">
-    <a class="rail-brand" href="#top" aria-label="M&amp;J Video Games home">
-      <img src="/assets/img/mark.svg" alt="" width="34" height="34" />
-      <span class="bn">M<b>&amp;</b>J VIDEO GAMES</span>
-    </a>
-    <button class="tb-toggle" id="tbToggle" aria-label="Menu" aria-expanded="false"><span></span></button>
+  <!-- CRT overlays -->
+  <div class="crt-glow" aria-hidden="true"></div>
+  <div class="crt-scan" aria-hidden="true"></div>
+  <div class="crt-vignette" aria-hidden="true"></div>
+  <div class="flicker" aria-hidden="true"></div>
+  <div class="crt-bezel" aria-hidden="true"></div>
+  <div class="power-flash" aria-hidden="true"></div>
+
+  <!-- HUD BAR -->
+  <header class="hud">
+    <span class="oneup px">1UP <b>M&amp;J</b></span>
+    <span class="hud-brand"><span>M<span class="amp">&amp;</span>J VIDEO GAMES</span></span>
+    <div class="hud-right">
+      <span class="hud-status off" id="hudStatus"><span class="dot"></span>––––</span>
+      <a class="hud-call" href="tel:+18604799223">☎ 860-479-9223</a>
+      <button class="hud-menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">MENU</button>
+    </div>
   </header>
+
+  <!-- Mobile drawer -->
   <div class="drawer-bg" id="drawerBg" aria-hidden="true"></div>
-  <nav class="drawer" id="drawer" aria-label="Mobile">
-    <a href="#carry">Game Select</a>
-    <a href="#trade">Buy / Sell / Trade</a>
-    <a href="#online">Shop Online</a>
-    <a href="#visit">Visit</a>
-    <a class="btn btn--primary" href="tel:+18604799223">Call 860-479-9223</a>
+  <nav class="drawer" id="drawer" aria-label="Menu">
+    <a href="#select"><span class="cur">▶</span> Game Select</a>
+    <a href="#howto"><span class="cur">▶</span> Trade-In</a>
+    <a href="#photos"><span class="cur">▶</span> Photo Mode</a>
+    <a href="#online"><span class="cur">▶</span> Shop Online</a>
+    <a href="#visit"><span class="cur">▶</span> Visit</a>
   </nav>
 
-  <div class="app" id="top">
+  <main id="top">
 
-    <!-- ===================== CONSOLE RAIL ===================== -->
-    <aside class="rail">
-      <a class="rail-brand" href="#top" aria-label="M&amp;J Video Games home">
-        <img src="/assets/img/mark.svg" alt="" width="38" height="38" />
-        <span>
-          <span class="bn">M<b>&amp;</b>J VIDEO GAMES</span><br />
-          <span class="bt">&amp; Collectibles</span>
-        </span>
-      </a>
+    <!-- ============ BOOT / TITLE SCREEN ============ -->
+    <section class="boot wrap" id="start">
+      <p class="coin px" data-reveal>© M&amp;J · SOUTHINGTON CT · INSERT COIN</p>
+      <h1 class="title" data-reveal>
+        <span class="l1">M<span class="amp">&amp;</span>J</span>
+        <span class="l2">VIDEO GAMES</span>
+      </h1>
+      <p class="strap px" data-reveal>&amp; COLLECTIBLES</p>
+      <p class="credit px" data-reveal>FOR ALL YOUR RETRO-GAMING &amp; MEMORABILIA NEEDS</p>
 
-      <div class="rail-coin">Southington, CT</div>
+      <p class="press px blink" data-reveal>▶ PRESS START</p>
 
-      <nav class="rail-nav" id="railNav" aria-label="Primary">
-        <a href="#hero"><span class="cur">▶</span> Start</a>
-        <a href="#carry"><span class="cur">▶</span> Game Select</a>
-        <a href="#trade"><span class="cur">▶</span> Buy / Sell / Trade</a>
-        <a href="#online"><span class="cur">▶</span> Shop Online</a>
-        <a href="#visit"><span class="cur">▶</span> Visit</a>
+      <nav class="menu" id="mainMenu" aria-label="Main menu" data-reveal>
+        <div class="menu-title">◄ MAIN MENU ►</div>
+        <a href="#select"><span class="cur">▶</span> Game Select <span class="k">01</span></a>
+        <a href="#howto"><span class="cur">▶</span> Buy · Sell · Trade <span class="k">02</span></a>
+        <a href="#photos"><span class="cur">▶</span> Photo Mode <span class="k">03</span></a>
+        <a href="#online"><span class="cur">▶</span> Shop Online <span class="k">04</span></a>
+        <a href="#visit"><span class="cur">▶</span> Visit The Shop <span class="k">05</span></a>
       </nav>
 
-      <div class="rail-foot">
-        <div class="rail-status closed" id="railStatus"><span class="dot"></span> Checking…</div>
-        <a class="rail-call" href="tel:+18604799223">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-          860-479-9223
+      <div class="hud-stats" data-reveal>
+        <div class="st"><div class="n">NES→PS5</div><div class="k">Retro &amp; Modern</div></div>
+        <div class="st"><div class="n">1000s</div><div class="k">Games / Collectibles</div></div>
+        <div class="st"><div class="n">B·S·T</div><div class="k">Buy Sell Trade</div></div>
+      </div>
+    </section>
+
+    <!-- Attract ticker -->
+    <div class="attract" aria-hidden="true">
+      <div class="attract-tr" id="attract">
+        <span>RETRO GAMES</span><span>CONSOLES</span><span>FUNKO POPS</span><span>ACTION FIGURES</span><span>TRADING CARDS</span><span>WRESTLING MEMORABILIA</span><span>AUTOGRAPHED &amp; GAME-USED</span><span>BUY · SELL · TRADE</span>
+      </div>
+    </div>
+
+    <!-- ============ GAME SELECT (what we carry) ============ -->
+    <section class="scene wrap" id="select">
+      <div class="scene-head">
+        <span class="tag" data-reveal>Game Select</span>
+        <h2 class="h-scene" data-reveal>SELECT YOUR <span class="c">ITEM</span></h2>
+        <p class="sub" data-reveal>From cartridge classics to the newest drops, and from the Funko wall to autographed memorabilia — pick a category, or come dig through it all in person.</p>
+      </div>
+
+      <div class="items">
+        <a class="item" href="#visit" style="--c:var(--cyan)" data-reveal>
+          <figure class="item-scr ph"><img class="ph-img" src="/assets/img/photos/item-games.jpg" alt="Retro and modern games at M&amp;J" onerror="this.remove()"><figcaption class="ph-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="14" rx="1"/><path d="M8 3h8M12 6v14"/></svg><span class="l">RETRO GAMES</span><span class="s">PHOTO 01</span></figcaption></figure>
+          <div class="item-bar"><span class="no">01</span> RETRO &amp; MODERN <span class="sel">▶</span></div>
+          <p class="item-desc"><b>NES to next-gen.</b> Best new releases plus hard-to-find retro titles across every system.</p>
         </a>
-        <div class="rail-social">
-          <a href="https://www.facebook.com/MJVideoGamesandSportsCollectibles" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg>
-          </a>
-          <a href="https://www.ebay.com/str/mjvideogamesct1" target="_blank" rel="noopener" aria-label="eBay store">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5 10.5A2 2 0 0 0 6.5 21h11a2 2 0 0 0 2-1.5L21 9"/><path d="M3 9h18M8 9V6a4 4 0 0 1 8 0v3"/></svg>
-          </a>
-        </div>
+        <a class="item" href="#visit" style="--c:var(--magenta)" data-reveal>
+          <figure class="item-scr ph"><img class="ph-img" src="/assets/img/photos/item-consoles.jpg" alt="Consoles and accessories" onerror="this.remove()"><figcaption class="ph-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="10" rx="5"/><path d="M7 12h3M8.5 10.5v3M15 11h.01M18 13h.01"/></svg><span class="l">CONSOLES</span><span class="s">PHOTO 02</span></figcaption></figure>
+          <div class="item-bar"><span class="no">02</span> CONSOLES <span class="sel">▶</span></div>
+          <p class="item-desc"><b>Plug in &amp; play.</b> Systems, controllers, cables and add-ons — tested and ready.</p>
+        </a>
+        <a class="item" href="#visit" style="--c:var(--yellow)" data-reveal>
+          <figure class="item-scr ph"><img class="ph-img" src="/assets/img/photos/item-funko.jpg" alt="Funko Pops wall" onerror="this.remove()"><figcaption class="ph-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="3" width="12" height="18" rx="2"/><circle cx="12" cy="9" r="3"/></svg><span class="l">FUNKO POPS</span><span class="s">PHOTO 03</span></figcaption></figure>
+          <div class="item-bar"><span class="no">03</span> FUNKO POPS <span class="sel">▶</span></div>
+          <p class="item-desc"><b>Common to chase.</b> A rotating wall across movies, games and sports.</p>
+        </a>
+        <a class="item" href="#visit" style="--c:var(--green)" data-reveal>
+          <figure class="item-scr ph"><img class="ph-img" src="/assets/img/photos/item-figures.jpg" alt="Action figures" onerror="this.remove()"><figcaption class="ph-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="2.5"/><path d="M12 8v7M6 11h12M9 21l3-6 3 6"/></svg><span class="l">FIGURES</span><span class="s">PHOTO 04</span></figcaption></figure>
+          <div class="item-bar"><span class="no">04</span> ACTION FIGURES <span class="sel">▶</span></div>
+          <p class="item-desc"><b>Carded &amp; loose.</b> Vintage and modern figures — including hard-to-find grails.</p>
+        </a>
+        <a class="item" href="#visit" style="--c:var(--blue)" data-reveal>
+          <figure class="item-scr ph"><img class="ph-img" src="/assets/img/photos/item-cards.jpg" alt="Trading cards" onerror="this.remove()"><figcaption class="ph-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="12" height="16" rx="1"/><rect x="9" y="7" width="11" height="13" rx="1"/></svg><span class="l">CARDS</span><span class="s">PHOTO 05</span></figcaption></figure>
+          <div class="item-bar"><span class="no">05</span> TRADING CARDS <span class="sel">▶</span></div>
+          <p class="item-desc"><b>Singles to sealed.</b> Sports &amp; gaming cards — vintage to the latest sets.</p>
+        </a>
+        <a class="item" href="#visit" style="--c:var(--orange)" data-reveal>
+          <figure class="item-scr ph"><img class="ph-img" src="/assets/img/photos/item-memorabilia.jpg" alt="Wrestling and sports memorabilia" onerror="this.remove()"><figcaption class="ph-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v4a6 6 0 0 1-12 0z"/><path d="M9 14h6M8 21h8M12 14v7"/></svg><span class="l">MEMORABILIA</span><span class="s">PHOTO 06</span></figcaption></figure>
+          <div class="item-bar"><span class="no">06</span> WRESTLING &amp; SPORTS <span class="sel">▶</span></div>
+          <p class="item-desc"><b>Rare &amp; vintage.</b> Autographed and game-used sports &amp; wrestling collectibles.</p>
+        </a>
       </div>
-    </aside>
+    </section>
 
-    <!-- ===================== MAIN ===================== -->
-    <main class="main">
-
-      <!-- HERO -->
-      <section class="hero band" id="hero">
-        <div class="wrap hero-split">
-          <div class="hero-copy">
-            <span class="hero-eyebrow" data-reveal><span class="blink"></span> Player 1 — Press Start</span>
-            <h1 data-reveal data-reveal-delay="1">M<span class="amp">&amp;</span>J<span class="l2">Video Games</span></h1>
-            <p class="hero-tag" data-reveal data-reveal-delay="2">For all your <b>retro-gaming</b> and <b>memorabilia</b> needs — Southington's game store since day one.</p>
-            <div class="hero-actions" data-reveal data-reveal-delay="3">
-              <a class="btn btn--primary" href="#carry">
-                Game Select
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </a>
-              <a class="btn btn--ghost" href="#visit">Find The Shop</a>
-            </div>
-            <div class="hero-stats" data-reveal data-reveal-delay="4">
-              <div class="s"><div class="n">NES→PS5</div><div class="k">Retro &amp; Modern</div></div>
-              <div class="s"><div class="n">1000s</div><div class="k">Games &amp; Collectibles</div></div>
-              <div class="s"><div class="n">B/S/T</div><div class="k">Buy · Sell · Trade</div></div>
-            </div>
-          </div>
-
-          <div class="hero-visual" aria-hidden="true">
-            <div class="cart c1 float"><span class="lbl">RETRO</span></div>
-            <div class="cart c3 float"><span class="lbl">SPORTS</span></div>
-            <div class="cart c2 float"><span class="lbl">M&amp;J</span></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- TICKER -->
-      <div class="ticker" aria-hidden="true">
-        <div class="ticker-track" id="ticker">
-          <span>Retro Video Games</span><span>Consoles &amp; Accessories</span><span>Funko Pops</span><span>Action Figures</span><span>Trading Cards</span><span>Wrestling Memorabilia</span><span>Autographed &amp; Game-Used</span><span>Buy · Sell · Trade</span>
-        </div>
+    <!-- ============ HOW TO PLAY (buy/sell/trade) ============ -->
+    <section class="scene wrap" id="howto">
+      <div class="scene-head">
+        <span class="tag" data-reveal>The Counter</span>
+        <h2 class="h-scene" data-reveal>HOW TO <span class="y">PLAY</span></h2>
+        <p class="sub" data-reveal>Bring in a single game, a stack of figures, or a whole collection. Cash or store credit, no appointment needed.</p>
       </div>
 
-      <!-- GAME SELECT / WHAT WE CARRY -->
-      <section class="band" id="carry">
-        <div class="wrap">
-          <span class="eyebrow" data-reveal>Game Select</span>
-          <h2 class="h-band" data-reveal>What We <span class="u">Carry</span></h2>
-          <p class="lead" data-reveal>From cartridge classics to the newest drops, and from the Funko wall to autographed memorabilia — if it's worth collecting, chances are we've got it or can track it down.</p>
+      <div class="manual">
+        <div class="mbox" data-reveal>
+          <div class="lv">LEVEL 01</div>
+          <h3>BUY</h3>
+          <p><b>Stock up.</b> Retro classics, modern releases, consoles, sealed collectibles and rare memorabilia — fresh finds landing every week.</p>
+        </div>
+        <div class="mbox" data-reveal>
+          <div class="lv">LEVEL 02</div>
+          <h3>SELL</h3>
+          <p><b>Cash out.</b> Turn games, figures and collectibles into cash or store credit — one item or a lifetime collection, a fair offer on the spot.</p>
+        </div>
+        <div class="mbox" data-reveal>
+          <div class="lv">LEVEL 03</div>
+          <h3>TRADE</h3>
+          <p><b>Level up.</b> Trade in what you're done with toward the game, console or grail you've been hunting for.</p>
+        </div>
+      </div>
+      <p class="coin-note" data-reveal>◉ WALK-INS WELCOME DURING SHOP HOURS<br />GOT A BIG COLLECTION? CALL AHEAD ► <a href="tel:+18604799223">860-479-9223</a></p>
+    </section>
 
-          <div class="bento">
-            <article class="tile" data-reveal><span class="ico">🕹️</span><span class="tg">Games</span><h3>Retro &amp; Modern Games</h3><p>NES to next-gen — the best new releases plus hard-to-find retro titles across every system on the shelves.</p></article>
-            <article class="tile" data-reveal data-reveal-delay="1"><span class="ico">🎮</span><span class="tg">Hardware</span><h3>Consoles &amp; Accessories</h3><p>Systems, controllers, cables and add-ons — tested and ready to play.</p></article>
-            <article class="tile" data-reveal data-reveal-delay="2"><span class="ico">📦</span><span class="tg">Collectibles</span><h3>Funko Pops</h3><p>Common to chase.</p></article>
-            <article class="tile" data-reveal data-reveal-delay="3"><span class="ico">🦸</span><span class="tg">Collectibles</span><h3>Action Figures</h3><p>Carded &amp; loose grails.</p></article>
-            <article class="tile" data-reveal data-reveal-delay="2"><span class="ico">🎴</span><span class="tg">Cards</span><h3>Trading Cards</h3><p>Sports &amp; gaming singles, sealed product and packs — vintage to the latest sets.</p></article>
-            <article class="tile" data-reveal data-reveal-delay="3"><span class="ico">🏆</span><span class="tg">Memorabilia</span><h3>Wrestling &amp; Sports</h3><p>Rare, vintage wrestling &amp; sports pieces — autographed and game-used collectibles.</p></article>
+    <!-- ============ PHOTO MODE (gallery) ============ -->
+    <section class="scene wrap" id="photos">
+      <div class="scene-head">
+        <span class="tag" data-reveal>Photo Mode</span>
+        <h2 class="h-scene" data-reveal>INSIDE THE <span class="m">SHOP</span></h2>
+        <p class="sub" data-reveal>A look around the store. Photos drop straight into these frames — storefront, the walls, the cases and the counter.</p>
+      </div>
+      <div class="gallery" data-reveal>
+        <figure class="gframe"><span class="glabel px">01</span><div class="ph"><img class="ph-img" src="/assets/img/photos/shop-1.jpg" alt="Inside M&amp;J Video Games" onerror="this.remove()"><figcaption class="ph-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h4l2-2h6l2 2h4v13H3z"/><circle cx="12" cy="13" r="3.5"/></svg><span class="l">STOREFRONT</span></figcaption></div></figure>
+        <figure class="gframe"><span class="glabel px">02</span><div class="ph"><img class="ph-img" src="/assets/img/photos/shop-2.jpg" alt="Retro games at M&amp;J" onerror="this.remove()"><figcaption class="ph-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h4l2-2h6l2 2h4v13H3z"/><circle cx="12" cy="13" r="3.5"/></svg><span class="l">RETRO WALL</span></figcaption></div></figure>
+        <figure class="gframe"><span class="glabel px">03</span><div class="ph"><img class="ph-img" src="/assets/img/photos/shop-3.jpg" alt="Funko wall at M&amp;J" onerror="this.remove()"><figcaption class="ph-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h4l2-2h6l2 2h4v13H3z"/><circle cx="12" cy="13" r="3.5"/></svg><span class="l">FUNKO WALL</span></figcaption></div></figure>
+        <figure class="gframe"><span class="glabel px">04</span><div class="ph"><img class="ph-img" src="/assets/img/photos/shop-4.jpg" alt="Collectibles case" onerror="this.remove()"><figcaption class="ph-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h4l2-2h6l2 2h4v13H3z"/><circle cx="12" cy="13" r="3.5"/></svg><span class="l">THE CASES</span></figcaption></div></figure>
+        <figure class="gframe"><span class="glabel px">05</span><div class="ph"><img class="ph-img" src="/assets/img/photos/shop-5.jpg" alt="Trading cards case" onerror="this.remove()"><figcaption class="ph-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h4l2-2h6l2 2h4v13H3z"/><circle cx="12" cy="13" r="3.5"/></svg><span class="l">CARD CASE</span></figcaption></div></figure>
+        <figure class="gframe"><span class="glabel px">06</span><div class="ph"><img class="ph-img" src="/assets/img/photos/shop-6.jpg" alt="Memorabilia at M&amp;J" onerror="this.remove()"><figcaption class="ph-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h4l2-2h6l2 2h4v13H3z"/><circle cx="12" cy="13" r="3.5"/></svg><span class="l">MEMORABILIA</span></figcaption></div></figure>
+      </div>
+    </section>
+
+    <!-- ============ SHOP ONLINE ============ -->
+    <section class="scene wrap" id="online">
+      <div class="scene-head">
+        <span class="tag" data-reveal>Continue?</span>
+        <h2 class="h-scene" data-reveal>SHOP <span class="c">ONLINE</span></h2>
+        <p class="sub" data-reveal>Can't make it in? A slice of the shop lives online too — browse eBay and follow along on Facebook.</p>
+      </div>
+      <div class="online-row">
+        <a class="oc ebay" href="https://www.ebay.com/str/mjvideogamesct1" target="_blank" rel="noopener" data-reveal>
+          <div class="oh">PLAYER 1</div>
+          <h3>eBay Store</h3>
+          <p>Games, collectibles and memorabilia shipped to your door — browse our full storefront.</p>
+          <span class="go">VISIT MJVIDEOGAMESCT1 ►</span>
+        </a>
+        <a class="oc fb" href="https://www.facebook.com/MJVideoGamesandSportsCollectibles" target="_blank" rel="noopener" data-reveal>
+          <div class="oh">PLAYER 2</div>
+          <h3>Facebook</h3>
+          <p>New arrivals and store updates — follow M&amp;J Video Games &amp; Sports Collectibles.</p>
+          <span class="go">FOLLOW THE SHOP ►</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ VISIT ============ -->
+    <section class="scene wrap" id="visit">
+      <div class="scene-head">
+        <span class="tag" data-reveal>Find The Shop</span>
+        <h2 class="h-scene" data-reveal>VISIT <span class="y">THE SHOP</span></h2>
+      </div>
+      <div class="visit-grid">
+        <div class="term" data-reveal>
+          <div class="bar"><span>SHOP_STATUS.EXE</span><span>_</span></div>
+          <span class="ln"><span class="k">STATUS:</span> <span id="termStatus">checking…</span></span>
+          <span class="stat off" id="termStat">● SCANNING</span>
+          <span class="ln" style="margin-top:14px"><span class="k">HOURS //</span></span>
+          <div id="hoursList">
+            <span class="ln"><span class="k">SUN</span> 12:00 – 7:00 PM</span>
+            <span class="ln"><span class="k">MON</span> 12:00 – 8:00 PM</span>
+            <span class="ln"><span class="k">TUE</span> 12:00 – 8:00 PM</span>
+            <span class="ln"><span class="k">WED</span> 12:00 – 8:00 PM</span>
+            <span class="ln"><span class="k">THU</span> 12:00 – 8:00 PM</span>
+            <span class="ln"><span class="k">FRI</span> 12:00 – 8:00 PM</span>
+            <span class="ln"><span class="k">SAT</span> 12:00 – 8:00 PM</span>
+          </div>
+          <span class="ln blink" style="margin-top:12px">▮</span>
+        </div>
+
+        <div class="visit-side" data-reveal>
+          <a class="vrow" href="https://maps.google.com/?q=M%26J+Video+Games+Collectibles+847+Queen+St+Southington+CT+06489" target="_blank" rel="noopener">
+            <span class="vi">⌖</span>
+            <span><span class="vk">LOCATION</span><br /><span class="vv">847 Queen St · Southington, CT 06489</span></span>
+          </a>
+          <a class="vrow" href="tel:+18604799223">
+            <span class="vi">☎</span>
+            <span><span class="vk">CALL / TEXT</span><br /><span class="vv">860-479-9223</span></span>
+          </a>
+          <div class="map">
+            <iframe
+              title="Map to M&amp;J Video Games &amp; Collectibles, Southington CT"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://maps.google.com/maps?q=847%20Queen%20St%2C%20Southington%2C%20CT%2006489&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- BUY / SELL / TRADE -->
-      <section class="band trade" id="trade">
-        <div class="wrap">
-          <span class="eyebrow" data-reveal>The Counter</span>
-          <h2 class="h-band" data-reveal>Buy · Sell · <span class="u">Trade</span></h2>
-          <p class="lead" data-reveal>Bring in a single game, a stack of figures, or a whole collection. From a dusty attic find to a graded hit, we know what it's worth — cash or store credit, no appointment needed.</p>
-
-          <div class="steps">
-            <div class="step" data-reveal data-reveal-delay="1">
-              <div class="chip">01</div>
-              <h3>Buy</h3>
-              <p>Retro classics, modern releases, consoles, sealed collectibles and rare memorabilia — fresh finds landing every week.</p>
-            </div>
-            <div class="step" data-reveal data-reveal-delay="2">
-              <div class="chip">02</div>
-              <h3>Sell</h3>
-              <p>Turn games, figures and collectibles into cash or store credit — one item or a lifetime collection, a fair offer on the spot.</p>
-            </div>
-            <div class="step" data-reveal data-reveal-delay="3">
-              <div class="chip">03</div>
-              <h3>Trade</h3>
-              <p>Level up your collection — trade in what you're done with toward the game, console or grail you've been hunting.</p>
-            </div>
-          </div>
-
-          <p class="trade-note" data-reveal>
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
-            Walk-ins welcome during shop hours — got a big collection? Call ahead at <a href="tel:+18604799223">860-479-9223</a>.
-          </p>
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+      <div class="wrap">
+        <div class="go px">GAME OVER?</div>
+        <div class="cont px blink">CONTINUE ► COME VISIT</div>
+        <div class="credits">
+          <a href="#select">GAME SELECT</a>
+          <a href="#howto">BUY·SELL·TRADE</a>
+          <a href="#online">SHOP ONLINE</a>
+          <a href="#visit">VISIT</a>
+          <a href="https://www.ebay.com/str/mjvideogamesct1" target="_blank" rel="noopener">EBAY</a>
+          <a href="https://www.facebook.com/MJVideoGamesandSportsCollectibles" target="_blank" rel="noopener">FACEBOOK</a>
         </div>
-      </section>
+        <div class="rights px">M&amp;J VIDEO GAMES &amp; COLLECTIBLES · 847 QUEEN ST · SOUTHINGTON CT<br />© <span id="year">2026</span> · 1 CREDIT = 1 VISIT</div>
+      </div>
+    </footer>
 
-      <!-- SHOP ONLINE -->
-      <section class="band online" id="online">
-        <div class="wrap">
-          <span class="eyebrow amber" data-reveal>Can't Make It In?</span>
-          <h2 class="h-band" data-reveal>Shop <span class="u">Online</span></h2>
-          <p class="lead" data-reveal>A slice of the shop lives online too. Browse listings on eBay, and follow along on Facebook for new arrivals, restocks and finds fresh off the counter.</p>
-
-          <div class="online-split">
-            <a class="op ebay" href="https://www.ebay.com/str/mjvideogamesct1" target="_blank" rel="noopener" data-reveal data-reveal-delay="1">
-              <div class="oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5 10.5A2 2 0 0 0 6.5 21h11a2 2 0 0 0 2-1.5L21 9"/><path d="M3 9h18M8 9V6a4 4 0 0 1 8 0v3"/></svg></div>
-              <h3>eBay Store</h3>
-              <p>Games, collectibles and memorabilia shipped to your door — browse our full storefront.</p>
-              <span class="go">Visit MJvideogamesct1 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-            </a>
-            <a class="op fb" href="https://www.facebook.com/MJVideoGamesandSportsCollectibles" target="_blank" rel="noopener" data-reveal data-reveal-delay="2">
-              <div class="oi"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></div>
-              <h3>Facebook</h3>
-              <p>New arrivals and store updates — follow M&amp;J Video Games &amp; Sports Collectibles.</p>
-              <span class="go">Follow the shop <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- VISIT -->
-      <section class="band" id="visit">
-        <div class="wrap">
-          <span class="eyebrow" data-reveal>Find The Shop</span>
-          <h2 class="h-band" data-reveal>Come <span class="u">Level Up</span></h2>
-
-          <div class="visit-grid">
-            <div class="readout" data-reveal>
-              <h3>Shop Status</h3>
-              <div class="rstat closed" id="hoursStatus"><span class="dot"></span>Checking hours…</div>
-              <ul class="hrs" id="hoursList">
-                <li><span class="d">Sunday</span><span class="t">12:00 – 7:00 PM</span></li>
-                <li><span class="d">Monday</span><span class="t">12:00 – 8:00 PM</span></li>
-                <li><span class="d">Tuesday</span><span class="t">12:00 – 8:00 PM</span></li>
-                <li><span class="d">Wednesday</span><span class="t">12:00 – 8:00 PM</span></li>
-                <li><span class="d">Thursday</span><span class="t">12:00 – 8:00 PM</span></li>
-                <li><span class="d">Friday</span><span class="t">12:00 – 8:00 PM</span></li>
-                <li><span class="d">Saturday</span><span class="t">12:00 – 8:00 PM</span></li>
-              </ul>
-            </div>
-
-            <div class="visit-info" data-reveal data-reveal-delay="1">
-              <a class="irow" href="https://maps.google.com/?q=M%26J+Video+Games+Collectibles+847+Queen+St+Southington+CT+06489" target="_blank" rel="noopener">
-                <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-                <span><span class="cl">Location</span><br /><span class="cv">847 Queen St · Southington, CT 06489</span></span>
-              </a>
-              <a class="irow" href="tel:+18604799223">
-                <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
-                <span><span class="cl">Call / Text</span><br /><span class="cv">860-479-9223</span></span>
-              </a>
-              <div class="map-embed">
-                <iframe
-                  title="Map to M&amp;J Video Games &amp; Collectibles, Southington CT"
-                  loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
-                  src="https://maps.google.com/maps?q=847%20Queen%20St%2C%20Southington%2C%20CT%2006489&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- FOOTER -->
-      <footer class="footer">
-        <div class="wrap">
-          <div class="footer-top">
-            <div class="footer-brand">
-              <span class="bn">M<b>&amp;</b>J VIDEO GAMES &amp; COLLECTIBLES</span>
-              <p>Southington, Connecticut's home for retro &amp; modern games, collectibles and vintage sports &amp; wrestling memorabilia. Buy · Sell · Trade.</p>
-            </div>
-            <div class="footer-links">
-              <div class="footer-col">
-                <h5>Explore</h5>
-                <a href="#carry">Game Select</a>
-                <a href="#trade">Buy / Sell / Trade</a>
-                <a href="#online">Shop Online</a>
-                <a href="#visit">Visit</a>
-              </div>
-              <div class="footer-col">
-                <h5>Visit</h5>
-                <a href="https://maps.google.com/?q=M%26J+Video+Games+Collectibles+847+Queen+St+Southington+CT+06489" target="_blank" rel="noopener">847 Queen St, Southington</a>
-                <a href="tel:+18604799223">860-479-9223</a>
-                <a href="https://www.ebay.com/str/mjvideogamesct1" target="_blank" rel="noopener">eBay Store</a>
-                <a href="https://www.facebook.com/MJVideoGamesandSportsCollectibles" target="_blank" rel="noopener">Facebook</a>
-              </div>
-            </div>
-          </div>
-          <div class="footer-bottom">
-            <span class="site">M<b>&amp;</b>J VIDEO GAMES</span>
-            <span>© <span id="year">2026</span> M&amp;J Video Games &amp; Collectibles · Southington, CT</span>
-          </div>
-        </div>
-      </footer>
-
-    </main>
-  </div>
+  </main>
 
   <script src="/assets/js/main.js" defer></script>
 </body>

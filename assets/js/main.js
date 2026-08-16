@@ -1,64 +1,64 @@
 /* =========================================================
-   M&J Video Games & Collectibles — interactions
+   M&J VIDEO GAMES — ARCADE OS interactions
    ========================================================= */
 (function () {
   'use strict';
 
-  /* ---------- Year ---------- */
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  /* ---------- Remove power flash node after it plays ---------- */
+  var flash = document.querySelector('.power-flash');
+  if (flash) setTimeout(function () { flash.remove(); }, 1200);
+
   /* ---------- Mobile drawer ---------- */
-  var toggle = document.getElementById('tbToggle');
+  var menuBtn = document.getElementById('menuBtn');
   var drawer = document.getElementById('drawer');
   var drawerBg = document.getElementById('drawerBg');
-
   function setDrawer(open) {
     if (!drawer) return;
     drawer.classList.toggle('open', open);
     if (drawerBg) drawerBg.classList.toggle('open', open);
-    if (toggle) toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (menuBtn) menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
     document.body.style.overflow = open ? 'hidden' : '';
   }
-  if (toggle) toggle.addEventListener('click', function () { setDrawer(!drawer.classList.contains('open')); });
+  if (menuBtn) menuBtn.addEventListener('click', function () { setDrawer(!drawer.classList.contains('open')); });
   if (drawerBg) drawerBg.addEventListener('click', function () { setDrawer(false); });
-  if (drawer) drawer.querySelectorAll('a').forEach(function (a) {
-    a.addEventListener('click', function () { setDrawer(false); });
-  });
+  if (drawer) drawer.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setDrawer(false); }); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setDrawer(false); });
 
-  /* ---------- Reveal on scroll ---------- */
+  /* ---------- Reveal ---------- */
   var revealEls = document.querySelectorAll('[data-reveal]');
   if ('IntersectionObserver' in window && revealEls.length) {
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
     revealEls.forEach(function (el) { io.observe(el); });
   } else {
     revealEls.forEach(function (el) { el.classList.add('in'); });
   }
 
-  /* ---------- Active section in rail nav ---------- */
-  var navLinks = Array.prototype.slice.call(document.querySelectorAll('#railNav a'));
-  var sections = navLinks
-    .map(function (a) { return document.querySelector(a.getAttribute('href')); })
-    .filter(Boolean);
-  if ('IntersectionObserver' in window && sections.length) {
-    var spy = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) {
-          var id = '#' + en.target.id;
-          navLinks.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === id); });
-        }
-      });
-    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
-    sections.forEach(function (s) { spy.observe(s); });
+  /* ---------- Main menu: arrow-key navigation ---------- */
+  var menu = document.getElementById('mainMenu');
+  if (menu) {
+    var links = Array.prototype.slice.call(menu.querySelectorAll('a'));
+    var idx = 0;
+    function select(i, focus) {
+      idx = (i + links.length) % links.length;
+      links.forEach(function (a, n) { a.classList.toggle('sel', n === idx); });
+      if (focus) links[idx].focus();
+    }
+    select(0, false);
+    links.forEach(function (a, n) { a.addEventListener('mouseenter', function () { select(n, false); }); });
+    // Only hijack arrows while the menu (or its links) has focus
+    menu.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown') { e.preventDefault(); select(idx + 1, true); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); select(idx - 1, true); }
+      else if (e.key === 'Enter' && document.activeElement === links[idx]) { /* native anchor handles */ }
+    });
   }
 
-  /* ---------- Store hours (single source of truth) ----------
-     day index: 0=Sun ... 6=Sat ; 24h decimal */
+  /* ---------- Store hours (single source of truth) ---------- */
   var HOURS = [
     { open: 12, close: 19 }, // Sun
     { open: 12, close: 20 }, // Mon
@@ -68,48 +68,46 @@
     { open: 12, close: 20 }, // Fri
     { open: 12, close: 20 }  // Sat
   ];
-  var DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  var DAY = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 
   function fmt(t) {
     var h = Math.floor(t), m = Math.round((t - h) * 60);
-    var ampm = h >= 12 ? 'PM' : 'AM';
-    var hh = h % 12; if (hh === 0) hh = 12;
-    return hh + ':' + (m < 10 ? '0' + m : m) + ' ' + ampm;
+    var ap = h >= 12 ? 'PM' : 'AM', hh = h % 12; if (hh === 0) hh = 12;
+    return hh + ':' + (m < 10 ? '0' + m : m) + ' ' + ap;
   }
 
   function updateHours() {
-    var now = new Date();
-    var day = now.getDay();
+    var now = new Date(), day = now.getDay();
     var nowT = now.getHours() + now.getMinutes() / 60;
-    var today = HOURS[day];
-    var isOpen = today && nowT >= today.open && nowT < today.close;
+    var t = HOURS[day];
+    var open = t && nowT >= t.open && nowT < t.close;
 
-    // message text
-    var msg;
-    if (isOpen) {
-      msg = (today.close - nowT <= 1) ? 'Closing ' + fmt(today.close) : 'Open · until ' + fmt(today.close);
+    var longMsg;
+    if (open) {
+      longMsg = (t.close - nowT <= 1) ? 'OPEN — CLOSING ' + fmt(t.close) : 'OPEN — UNTIL ' + fmt(t.close);
     } else {
-      msg = 'Closed';
+      longMsg = 'CLOSED';
       for (var i = 0; i < 7; i++) {
         var d = (day + i) % 7, h = HOURS[d];
         if (!h) continue;
-        if (i === 0 && nowT < h.open) { msg = 'Opens ' + fmt(h.open) + ' today'; break; }
-        if (i > 0) { msg = 'Opens ' + DAY_NAMES[d] + ' ' + fmt(h.open); break; }
+        if (i === 0 && nowT < h.open) { longMsg = 'CLOSED — OPENS ' + fmt(h.open); break; }
+        if (i > 0) { longMsg = 'CLOSED — OPENS ' + DAY[d] + ' ' + fmt(h.open); break; }
       }
     }
 
-    // Visit readout + rail badge
-    [['hoursStatus', 'rstat'], ['railStatus', 'rail-status']].forEach(function (pair) {
-      var el = document.getElementById(pair[0]);
-      if (!el) return;
-      el.classList.remove('open', 'closed');
-      el.classList.add(isOpen ? 'open' : 'closed');
-      el.innerHTML = '<span class="dot"></span>' + (isOpen ? msg : (pair[0] === 'railStatus' ? 'Closed' : msg));
-    });
+    // HUD short badge
+    var hud = document.getElementById('hudStatus');
+    if (hud) { hud.classList.toggle('on', open); hud.classList.toggle('off', !open); hud.innerHTML = '<span class="dot"></span>' + (open ? 'OPEN' : 'CLOSED'); }
 
-    // highlight today's row
-    var listEl = document.getElementById('hoursList');
-    if (listEl) listEl.querySelectorAll('li').forEach(function (li, i) { li.classList.toggle('today', i === day); });
+    // Terminal
+    var ts = document.getElementById('termStatus');
+    if (ts) ts.textContent = longMsg;
+    var tstat = document.getElementById('termStat');
+    if (tstat) { tstat.classList.toggle('on', open); tstat.classList.toggle('off', !open); tstat.textContent = open ? '● ONLINE' : '● OFFLINE'; }
+
+    // Highlight today's hours row
+    var list = document.getElementById('hoursList');
+    if (list) list.querySelectorAll('.ln').forEach(function (li, i) { li.classList.toggle('today', i === day); });
   }
   updateHours();
   setInterval(updateHours, 60 * 1000);
