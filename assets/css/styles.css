@@ -463,3 +463,49 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
 @media (max-width:620px){
   .tradein-photos{ grid-template-columns:1fr 1fr; }
 }
+
+
+/* =========================================================
+   CONTACT US — terminal-styled contact form
+   ========================================================= */
+.contact-grid{ display:grid; grid-template-columns:1.15fr 1fr; gap:16px; align-items:start; }
+.contact-form{ display:flex; flex-direction:column; gap:16px; }
+.contact-form .bar{ font-family:var(--ff-pixel); font-size:.5rem; color:var(--green);
+  border-bottom:2px solid var(--edge-dim); padding-bottom:12px; margin-bottom:4px;
+  display:flex; justify-content:space-between; }
+.cf-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.cf-field{ display:flex; flex-direction:column; gap:7px; }
+.cf-label{ font-family:var(--ff-pixel); font-size:.5rem; }
+.cf-label .k{ color:var(--cyan); }
+.cf-input{
+  font-family:var(--ff-term); font-size:1.12rem; color:var(--text);
+  background:#04070d; border:3px solid var(--edge-dim);
+  padding:11px 12px; width:100%;
+  transition:border-color .08s steps(1), box-shadow .08s steps(1);
+}
+.cf-input::placeholder{ color:var(--edge-dim); }
+.cf-input:focus{ outline:none; border-color:var(--cyan);
+  box-shadow:0 0 0 2px rgba(51,230,212,.18); }
+.cf-area{ resize:vertical; min-height:120px; }
+.cf-select{ appearance:none; -webkit-appearance:none; cursor:pointer;
+  background-image:linear-gradient(45deg, transparent 50%, var(--cyan) 50%),
+                    linear-gradient(135deg, var(--cyan) 50%, transparent 50%);
+  background-position:calc(100% - 16px) 50%, calc(100% - 11px) 50%;
+  background-size:5px 5px, 5px 5px; background-repeat:no-repeat; padding-right:30px; }
+.cf-select option{ background:#0b1224; color:var(--text); }
+.cf-actions{ display:flex; flex-wrap:wrap; align-items:center; gap:14px; margin-top:2px; }
+.cf-actions .abtn{ border:0; }
+.cf-actions .abtn .cur{ color:#06121a; }
+.cf-note{ font-size:.5rem; color:var(--dim); }
+.cf-status{ margin:0; font-family:var(--ff-pixel); font-size:.52rem; min-height:1.4em; }
+.cf-status.ok{ color:var(--green); }
+.cf-status.err{ color:var(--red); }
+.cf-hours{ font-size:.5rem; color:var(--yellow); text-align:center; padding:12px 10px;
+  border:3px dashed var(--edge-dim); }
+
+@media (max-width:860px){
+  .contact-grid{ grid-template-columns:1fr; }
+}
+@media (max-width:620px){
+  .cf-row{ grid-template-columns:1fr; }
+}
