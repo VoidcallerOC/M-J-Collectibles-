@@ -21,7 +21,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="/assets/css/styles.css" />
 
@@ -88,11 +88,15 @@
     <!-- ============ BOOT / TITLE SCREEN ============ -->
     <section class="boot wrap" id="start">
       <p class="coin px" data-reveal>© M&amp;J · SOUTHINGTON CT · INSERT COIN</p>
-      <h1 class="title" data-reveal>
-        <span class="l1">M<span class="amp">&amp;</span>J</span>
-        <span class="l2">VIDEO GAMES</span>
+      <h1 class="brandlogo" aria-label="M&amp;J Video Games &amp; Collectibles" data-reveal>
+        <img class="brandlogo-png" src="/assets/img/logo.png" alt="M&amp;J Video Games &amp; Collectibles"
+             onload="this.closest('.brandlogo').classList.add('has-png')" onerror="this.remove()" />
+        <span class="brandlogo-svg" aria-hidden="true">
+          <span class="lg-mj">M<span class="amp">&amp;</span>J</span>
+          <span class="lg-vg">VIDEO GAMES</span>
+          <span class="lg-col">&amp; COLLECTIBLES</span>
+        </span>
       </h1>
-      <p class="strap px" data-reveal>&amp; COLLECTIBLES</p>
       <p class="credit px" data-reveal>FOR ALL YOUR RETRO-GAMING &amp; MEMORABILIA NEEDS</p>
 
       <p class="press px blink" data-reveal>▶ PRESS START</p>

@@ -31,6 +31,7 @@
   --ff-term: "VT323","Courier New",monospace;
 
   --maxw: 1080px;
+  --bezel: 14px;   /* CRT frame thickness — content is inset by this */
 }
 
 *{ box-sizing:border-box; }
@@ -40,6 +41,7 @@ body{
   font-family:var(--ff-term); font-size:21px; line-height:1.35;
   overflow-x:hidden; letter-spacing:.01em;
   image-rendering:pixelated;
+  padding:var(--bezel);   /* keep all content inside the CRT bezel */
 }
 img{ max-width:100%; display:block; }
 a{ color:inherit; text-decoration:none; }
@@ -70,9 +72,9 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
 }
 .crt-scan{ background:repeating-linear-gradient(to bottom, rgba(0,0,0,.22) 0 2px, transparent 2px 4px); mix-blend-mode:multiply; opacity:.55; }
 .crt-glow{ background:radial-gradient(120% 90% at 50% 0%, rgba(51,230,212,.05), transparent 55%); }
-.crt-vignette{ box-shadow:inset 0 0 180px 40px rgba(0,0,0,.75); background:radial-gradient(130% 120% at 50% 50%, transparent 55%, rgba(0,0,0,.5)); }
+.crt-vignette{ box-shadow:inset 0 0 120px 18px rgba(0,0,0,.55); background:radial-gradient(135% 125% at 50% 50%, transparent 66%, rgba(0,0,0,.45)); }
 .crt-bezel{ z-index:910;
-  border:14px solid #06070c; border-radius:26px;
+  border:var(--bezel) solid #06070c; border-radius:26px;
   box-shadow:inset 0 0 0 3px #14161f, inset 0 0 60px 8px rgba(0,0,0,.8), 0 0 0 100vmax #000;
 }
 .flicker{ z-index:905; background:rgba(120,160,255,.03); animation:flick 7s steps(1) infinite; }
@@ -87,7 +89,7 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
 
 /* HUD top bar */
 .hud{
-  position:sticky; top:0; z-index:80;
+  position:sticky; top:var(--bezel); z-index:80;
   display:flex; align-items:center; justify-content:space-between; gap:14px;
   padding:10px clamp(16px,4vw,34px);
   background:var(--screen-2); border-bottom:3px solid var(--edge-dim);
@@ -147,6 +149,31 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
 .boot .strap{ font-family:var(--ff-pixel); font-size:.66rem; color:var(--text); margin:22px 0 6px; }
 .boot .credit{ font-family:var(--ff-pixel); font-size:.56rem; color:var(--dim); }
 .press{ font-family:var(--ff-pixel); font-size:.86rem; color:var(--green); margin:26px 0; }
+
+/* Brand logo lockup — arcade recreation.
+   Drop assets/img/logo.png to auto-override the recreation (no code change). */
+.brandlogo{ display:block; margin:24px auto 12px; }
+.brandlogo-png{ display:none; max-width:min(470px,84vw); margin:0 auto; height:auto; image-rendering:auto; }
+.brandlogo.has-png .brandlogo-png{ display:block; }
+.brandlogo.has-png .brandlogo-svg{ display:none; }
+.brandlogo-svg{ display:inline-flex; flex-direction:column; align-items:center; gap:2px; }
+.lg-mj{
+  font-family:"Luckiest Guy",var(--ff-pixel); font-weight:400;
+  font-size:clamp(3rem,13vw,7rem); line-height:.86; letter-spacing:3px; color:#F5C518;
+  -webkit-text-stroke:4px #000; text-stroke:4px #000; paint-order:stroke fill;
+  text-shadow:0 6px 0 rgba(0,0,0,.9);
+}
+.lg-vg{
+  position:relative; margin-top:8px; padding-bottom:13px;
+  font-family:var(--ff-pixel); font-size:clamp(.95rem,4.4vw,2.15rem); color:var(--red);
+  -webkit-text-stroke:1.5px #f6eccf; text-stroke:1.5px #f6eccf; paint-order:stroke fill;
+}
+.lg-vg::after{ content:""; position:absolute; left:2%; right:2%; bottom:0; height:9px; background:var(--red); border-radius:5px; }
+.lg-col{
+  align-self:flex-end; margin-top:7px;
+  font-family:system-ui,Arial,sans-serif; font-weight:800; letter-spacing:1.5px;
+  font-size:clamp(.7rem,2.4vw,1.05rem); color:#fff;
+}
 
 /* Main menu (the primary nav) */
 .menu{
@@ -302,6 +329,7 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
   .gframe:nth-child(4){ grid-row:auto; }
 }
 @media (max-width:620px){
+  :root{ --bezel:8px; }
   body{ font-size:19px; }
   .hud .oneup,.hud-call{ display:none; }
   .hud-menu-btn{ display:inline-block; }
@@ -309,5 +337,5 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
   .items{ grid-template-columns:1fr; }
   .gallery{ grid-template-columns:1fr; }
   .gframe:nth-child(1),.gframe:nth-child(6),.gframe:nth-child(4){ grid-column:span 1; grid-row:auto; }
-  .crt-bezel{ border-width:8px; border-radius:16px; }
+  .crt-bezel{ border-radius:16px; }
 }
