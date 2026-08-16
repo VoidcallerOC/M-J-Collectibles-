@@ -371,3 +371,54 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
   .about-media .frame{ flex:1; min-width:160px; }
   .take-list{ grid-template-columns:1fr; }
 }
+
+
+/* =========================================================
+   TRADE-IN PROGRAM (mail-in) + WE CARRY catalog
+   ========================================================= */
+.program{
+  margin-top:22px; background:var(--panel); border:3px solid var(--edge);
+  box-shadow:7px 7px 0 rgba(0,0,0,.6); padding:22px 20px 24px;
+}
+.program-head h3{ font-family:var(--ff-pixel); font-size:.82rem; color:var(--magenta); margin:0 0 8px; }
+.program-head p{ margin:0; color:var(--dim); font-size:1.05rem; }
+
+.program-steps{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:20px 0; }
+.pstep{ background:var(--panel-2); border:3px solid var(--edge-dim); box-shadow:5px 5px 0 rgba(0,0,0,.5); padding:18px 16px; }
+.pstep .ps-no{ font-family:var(--ff-pixel); font-size:.5rem; color:var(--cyan); }
+.pstep h4{ font-family:var(--ff-pixel); font-size:.74rem; color:var(--yellow); margin:10px 0 10px; }
+.pstep p{ margin:0 0 12px; color:var(--dim); font-size:1.04rem; }
+.pstep p b{ color:var(--text); font-weight:400; }
+.pstep .ps-cta{ display:inline-flex; flex-wrap:wrap; gap:8px; align-items:center; font-family:var(--ff-pixel); font-size:.52rem; color:var(--text); }
+.pstep .ps-cta a{ color:var(--cyan); }
+.pstep .ps-note{ display:block; font-size:.98rem; color:var(--dim); }
+
+.program-cols{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.pcard{ background:var(--panel-2); border:3px solid var(--edge-dim); box-shadow:5px 5px 0 rgba(0,0,0,.5); padding:18px 16px; }
+.pcard h4{ font-family:var(--ff-pixel); font-size:.62rem; margin:0 0 12px; }
+.pcard.yes{ border-color:var(--green); } .pcard.yes h4{ color:var(--green); }
+.pcard.no{ border-color:var(--red); } .pcard.no h4{ color:var(--red); }
+.pcard ul{ list-style:none; margin:0; padding:0; display:grid; gap:6px; }
+.pcard li{ font-size:1rem; color:var(--text); display:flex; gap:9px; }
+.pcard.yes li::before{ content:"\25B8"; color:var(--green); }
+.pcard.no li::before{ content:"\2716"; color:var(--red); }
+
+/* We Carry — systems catalog */
+.carry{ margin-top:26px; }
+.carry-head{ margin-bottom:18px; }
+.carry-title{ font-family:var(--ff-pixel); font-size:clamp(1.05rem,3.4vw,1.7rem); color:var(--text); margin:6px 0 0; text-shadow:4px 4px 0 rgba(0,0,0,.6); }
+.carry-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.cman{ background:var(--panel); border:3px solid var(--edge-dim); box-shadow:5px 5px 0 rgba(0,0,0,.5); padding:18px 16px; }
+.cman h4{ font-family:var(--ff-pixel); font-size:.72rem; color:var(--yellow); margin:0 0 12px; border-bottom:2px dashed var(--edge-dim); padding-bottom:10px; }
+.cman ul{ list-style:none; margin:0; padding:0; display:grid; gap:6px; }
+.cman li{ font-size:1.02rem; color:var(--text); display:flex; gap:9px; align-items:baseline; }
+.cman li::before{ content:"\25C6"; color:var(--cyan); font-size:.7em; }
+
+@media (max-width:820px){
+  .program-steps{ grid-template-columns:1fr; }
+  .program-cols{ grid-template-columns:1fr; }
+  .carry-grid{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width:620px){
+  .carry-grid{ grid-template-columns:1fr; }
+}
