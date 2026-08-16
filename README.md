@@ -36,6 +36,11 @@ vercel.json           Static hosting config (clean URLs, asset caching)
 - **What we carry** — edit the `.cat` cards in the `#carry` section of `index.html`.
 - **Phone / address** — search `index.html` for `860-479-9223` and `847 Queen St`
   (they also appear in the structured-data block in `<head>`).
+- **Contact form** — the **Contact Us** section (`#contact`) ships a terminal-styled
+  form. The site is static (no backend), so `assets/js/main.js` composes a pre-filled
+  `mailto:` to the shop address in the `CONTACT_EMAIL` constant at the top of the
+  contact-form handler. Set the shop email there to enable email delivery; if left
+  empty, the form status line routes visitors to call/text or Facebook Messenger.
 - **Colors / fonts** — all design tokens live in `:root` at the top of
   `assets/css/styles.css`.
 

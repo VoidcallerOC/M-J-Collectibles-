@@ -160,6 +160,55 @@
   updateHours();
   setInterval(updateHours, 60 * 1000);
 
+  /* ---------- Contact form ---------- */
+  // Submit handler. The site is static (no backend), so the form composes a
+  // pre-filled email via mailto: to the shop address (CONTACT_EMAIL below).
+  // If no CONTACT_EMAIL is set, the status line directs the visitor to the
+  // quick-contact rows (call/text + Facebook Messenger) instead.
+  var contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    var CONTACT_EMAIL = 'info@mjvideogames.com';   // set the shop email here
+    var statusEl = document.getElementById('contactStatus');
+
+    function setStatus(msg, kind) {
+      if (!statusEl) return;
+      statusEl.textContent = msg;
+      statusEl.className = 'cf-status' + (kind ? ' ' + kind : '');
+    }
+
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var data = new FormData(contactForm);
+      var name = (data.get('name') || '').toString().trim();
+      var contact = (data.get('contact') || '').toString().trim();
+      var subject = (data.get('subject') || '').toString().trim();
+      var message = (data.get('message') || '').toString().trim();
+
+      if (!name || !contact || !message) {
+        setStatus('> ERROR: NAME, CONTACT AND MESSAGE REQUIRED', 'err');
+        return;
+      }
+
+      var subjectLine = '[M&J Contact] ' + subject + ' — ' + name;
+      var body = 'Name: ' + name + '\n' +
+                 'Contact: ' + contact + '\n' +
+                 'Subject: ' + subject + '\n\n' +
+                 message + '\n\n' +
+                 '— Sent from mjvideogames.com';
+
+      if (CONTACT_EMAIL) {
+        var href = 'mailto:' + encodeURIComponent(CONTACT_EMAIL) +
+          '?subject=' + encodeURIComponent(subjectLine) +
+          '&body=' + encodeURIComponent(body);
+        window.location.href = href;
+        setStatus('> MESSAGE QUEUED — OPENING YOUR MAIL APP...', 'ok');
+      } else {
+        // No shop email configured: route to the quick-contact options.
+        setStatus('> CALL/TEXT 860-479-9223 OR MESSAGE US ON FACEBOOK ►', 'ok');
+      }
+    });
+  }
+
   /* ---------- Retro cursor follower ---------- */
   (function () {
     if (window.matchMedia('(hover: none)').matches) return;       // touch device
