@@ -431,12 +431,14 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
 .cursor-sprite{
   position:fixed; top:0; left:0; z-index:9999;
   pointer-events:none;             /* never block clicks */
-  width:70px; height:70px; margin:-35px 0 0 -35px;   /* 7x bigger, centered */
+  width:105px; height:105px; margin:-52px 0 0 -52px;  /* 1.5x bigger, centered */
   background:var(--green);
-  border-radius:50%;              /* circle */
+  /* chunky pixel-art circle (stepped clip-path, no anti-aliasing) */
+  clip-path:polygon(30% 0,70% 0,100% 30%,100% 70%,70% 100%,30% 100%,0 70%,0 30%);
+  image-rendering:pixelated;
   opacity:0; will-change:transform;
 }
-.cursor-sprite.on{ opacity:.28; }  /* see-through */
+.cursor-sprite.on{ opacity:.15; }  /* more see-through */
 /* Hide on touch / reduced-motion */
 @media (hover:none){ .cursor-sprite{ display:none!important; } }
 @media (prefers-reduced-motion:reduce){ .cursor-sprite{ display:none!important; } }
