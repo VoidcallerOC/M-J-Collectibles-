@@ -21,11 +21,37 @@
     if (drawerBg) drawerBg.classList.toggle('open', open);
     if (menuBtn) menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
     document.body.style.overflow = open ? 'hidden' : '';
+    // When closed, remove the drawer from the tab order and accessibility tree
+    // so off-screen links can't receive focus. Use the `hidden` attribute as a
+    // robust fallback alongside inert (which older browsers ignore).
+    if (open) {
+      drawer.removeAttribute('hidden');
+      drawer.setAttribute('aria-hidden', 'false');
+      if (drawer.hasAttribute('inert')) drawer.removeAttribute('inert');
+      // Move focus into the drawer when it opens
+      var firstLink = drawer.querySelector('a');
+      if (firstLink) firstLink.focus();
+    } else {
+      drawer.setAttribute('aria-hidden', 'true');
+      // inert prevents focus + pointer events on descendants; hidden also hides it.
+      try { drawer.setAttribute('inert', ''); } catch (e) {}
+      // (Don't set `hidden` while the slide-out CSS transition runs, or it
+      // snaps shut. inert alone is enough to block keyboard access.)
+      if (!('inert' in document.documentElement)) {
+        // No inert support: fall back to tabindex -1 on every link.
+        drawer.querySelectorAll('a,button').forEach(function (el) {
+          if (open) el.removeAttribute('tabindex');
+          else el.setAttribute('tabindex', '-1');
+        });
+      }
+    }
   }
+  // Start with the drawer closed/inert so links aren't focusable on load.
+  setDrawer(false);
   if (menuBtn) menuBtn.addEventListener('click', function () { setDrawer(!drawer.classList.contains('open')); });
   if (drawerBg) drawerBg.addEventListener('click', function () { setDrawer(false); });
-  if (drawer) drawer.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setDrawer(false); }); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setDrawer(false); });
+  if (drawer) drawer.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setDrawer(false); if (menuBtn) menuBtn.focus(); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && drawer.classList.contains('open')) { setDrawer(false); if (menuBtn) menuBtn.focus(); } });
 
   /* ---------- Reveal ---------- */
   var revealEls = document.querySelectorAll('[data-reveal]');
@@ -76,9 +102,31 @@
     return hh + ':' + (m < 10 ? '0' + m : m) + ' ' + ap;
   }
 
+  // Get current day-of-week and decimal hour in US Eastern time (handles DST).
+  // Falls back to local time if the browser lacks Intl timeZone support.
+  function etParts() {
+    var tz = 'America/New_York';
+    try {
+      var parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: tz, weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false
+      }).formatToParts(new Date());
+      var wd = '', hh = 0, mm = 0;
+      for (var i = 0; i < parts.length; i++) {
+        var pt = parts[i];
+        if (pt.type === 'weekday') wd = pt.value;
+        else if (pt.type === 'hour') hh = parseInt(pt.value, 10);
+        else if (pt.type === 'minute') mm = parseInt(pt.value, 10);
+      }
+      var map = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+      var day = map[wd];
+      if (day === undefined) return null;          // unexpected weekday string
+      return { day: day, t: hh + mm / 60 };
+    } catch (e) { return null; }
+  }
+
   function updateHours() {
-    var now = new Date(), day = now.getDay();
-    var nowT = now.getHours() + now.getMinutes() / 60;
+    var et = etParts() || { day: new Date().getDay(), t: new Date().getHours() + new Date().getMinutes() / 60 };
+    var day = et.day, nowT = et.t;
     var t = HOURS[day];
     var open = t && nowT >= t.open && nowT < t.close;
 
@@ -136,7 +184,7 @@
 
     window.addEventListener('pointermove', function (e) {
       tx = e.clientX; ty = e.clientY;
-      sprite.classList.add('on');
+      if (!sprite.classList.contains('on')) sprite.classList.add('on');
       if (!raf) raf = requestAnimationFrame(frame);
     }, { passive: true });
 
