@@ -42,8 +42,7 @@
       "addressCountry": "US"
     },
     "openingHoursSpecification": [
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "12:00", "closes": "20:00" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Sunday"], "opens": "12:00", "closes": "19:00" }
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "11:00", "closes": "19:00" }
     ],
     "sameAs": [
       "https://www.facebook.com/MJVideoGamesandSportsCollectibles",
@@ -79,6 +78,7 @@
   <nav class="drawer" id="drawer" aria-label="Menu">
     <a href="#select"><span class="cur">▶</span> Game Select</a>
     <a href="#howto"><span class="cur">▶</span> Trade-In</a>
+    <a href="#about"><span class="cur">▶</span> About</a>
     <a href="#photos"><span class="cur">▶</span> Photo Mode</a>
     <a href="#online"><span class="cur">▶</span> Shop Online</a>
     <a href="#visit"><span class="cur">▶</span> Visit</a>
@@ -106,9 +106,10 @@
         <div class="menu-title">◄ MAIN MENU ►</div>
         <a href="#select"><span class="cur">▶</span> Game Select <span class="k">01</span></a>
         <a href="#howto"><span class="cur">▶</span> Buy · Sell · Trade <span class="k">02</span></a>
-        <a href="#photos"><span class="cur">▶</span> Photo Mode <span class="k">03</span></a>
-        <a href="#online"><span class="cur">▶</span> Shop Online <span class="k">04</span></a>
-        <a href="#visit"><span class="cur">▶</span> Visit The Shop <span class="k">05</span></a>
+        <a href="#about"><span class="cur">▶</span> About The Shop <span class="k">03</span></a>
+        <a href="#photos"><span class="cur">▶</span> Photo Mode <span class="k">04</span></a>
+        <a href="#online"><span class="cur">▶</span> Shop Online <span class="k">05</span></a>
+        <a href="#visit"><span class="cur">▶</span> Visit The Shop <span class="k">06</span></a>
       </nav>
 
       <div class="hud-stats" data-reveal>
@@ -192,7 +193,49 @@
           <p><b>Level up.</b> Trade in what you're done with toward the game, console or grail you've been hunting for.</p>
         </div>
       </div>
-      <p class="coin-note" data-reveal>◉ WALK-INS WELCOME DURING SHOP HOURS<br />GOT A BIG COLLECTION? CALL AHEAD ► <a href="tel:+18604799223">860-479-9223</a></p>
+      <div class="tradein" data-reveal>
+        <img class="flyer" src="/assets/img/photos/flyer-trade.jpg?v=1" alt="M&amp;J Video Games trade-in flyer" loading="lazy" />
+        <div class="tradein-copy">
+          <h3>WHAT WE TAKE IN TRADE</h3>
+          <p><b>We accept trades on virtually all video games, systems &amp; accessories</b> — for store credit or cash. Stock changes daily, because folks bring in fresh finds every day.</p>
+          <ul class="take-list">
+            <li>Retro &amp; modern games</li>
+            <li>Consoles &amp; accessories</li>
+            <li>DVD box sets &amp; Blu-rays</li>
+            <li>Sports &amp; non-sport cards</li>
+            <li>Autographed items</li>
+            <li>Wrestling collectibles</li>
+            <li>Toys &amp; Funko Pops</li>
+            <li>Novelty items &amp; more</li>
+          </ul>
+          <p class="coin-note" style="margin:0;text-align:left">◉ WALK-INS WELCOME DURING SHOP HOURS — GOT A BIG COLLECTION? CALL AHEAD ► <a href="tel:+18604799223">860-479-9223</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT / SERVICES ============ -->
+    <section class="scene wrap" id="about">
+      <div class="scene-head">
+        <span class="tag" data-reveal>Player Profile</span>
+        <h2 class="h-scene" data-reveal>SINCE <span class="c">2014</span></h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-copy" data-reveal>
+          <p><b>Family-run in Southington since 2014.</b> M&amp;J Video Games &amp; Collectibles is where a lifetime collection and a kid's first console live on the same shelf — for all your retro-gaming and memorabilia needs.</p>
+          <p class="motto">"IF WE DON'T HAVE IT<br />AND YOU WANT IT,<br />WE'LL GET IT FOR YOU."</p>
+          <p>Beyond buy · sell · trade, we also handle <b>in-store repairs</b> and <b>special orders</b> — if it exists, we'll track it down for you.</p>
+          <div class="services">
+            <span>Buy · Sell · Trade</span>
+            <span>Repairs</span>
+            <span>Special Orders</span>
+            <span>Trade-Ins</span>
+          </div>
+        </div>
+        <div class="about-media" data-reveal>
+          <figure class="frame"><span class="cap">M &amp; J</span><img src="/assets/img/photos/about-owners.jpg?v=1" alt="The owners of M&amp;J Video Games &amp; Collectibles" loading="lazy" /></figure>
+          <figure class="frame"><span class="cap">EST. 2014</span><img src="/assets/img/photos/flyer-bst.jpg?v=1" alt="M&amp;J Video Games buy, sell and trade flyer" loading="lazy" /></figure>
+        </div>
+      </div>
     </section>
 
     <!-- ============ PHOTO MODE (gallery) ============ -->
@@ -257,13 +300,13 @@
           <span class="stat off" id="termStat">● SCANNING</span>
           <span class="ln" style="margin-top:14px"><span class="k">HOURS //</span></span>
           <div id="hoursList">
-            <span class="ln"><span class="k">SUN</span> 12:00 – 7:00 PM</span>
-            <span class="ln"><span class="k">MON</span> 12:00 – 8:00 PM</span>
-            <span class="ln"><span class="k">TUE</span> 12:00 – 8:00 PM</span>
-            <span class="ln"><span class="k">WED</span> 12:00 – 8:00 PM</span>
-            <span class="ln"><span class="k">THU</span> 12:00 – 8:00 PM</span>
-            <span class="ln"><span class="k">FRI</span> 12:00 – 8:00 PM</span>
-            <span class="ln"><span class="k">SAT</span> 12:00 – 8:00 PM</span>
+            <span class="ln"><span class="k">SUN</span> 11:00 AM – 7:00 PM</span>
+            <span class="ln"><span class="k">MON</span> 11:00 AM – 7:00 PM</span>
+            <span class="ln"><span class="k">TUE</span> 11:00 AM – 7:00 PM</span>
+            <span class="ln"><span class="k">WED</span> 11:00 AM – 7:00 PM</span>
+            <span class="ln"><span class="k">THU</span> 11:00 AM – 7:00 PM</span>
+            <span class="ln"><span class="k">FRI</span> 11:00 AM – 7:00 PM</span>
+            <span class="ln"><span class="k">SAT</span> 11:00 AM – 7:00 PM</span>
           </div>
           <span class="ln blink" style="margin-top:12px">▮</span>
         </div>
@@ -296,6 +339,7 @@
         <div class="credits">
           <a href="#select">GAME SELECT</a>
           <a href="#howto">BUY·SELL·TRADE</a>
+          <a href="#about">ABOUT</a>
           <a href="#online">SHOP ONLINE</a>
           <a href="#visit">VISIT</a>
           <a href="https://www.ebay.com/str/mjvideogamesct1" target="_blank" rel="noopener">EBAY</a>

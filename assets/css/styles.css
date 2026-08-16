@@ -336,3 +336,38 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
   .gframe:nth-child(1){ grid-column:span 1; grid-row:auto; }
   .crt-bezel{ border-radius:16px; }
 }
+
+/* =========================================================
+   TRADE-INS detail + ABOUT / SERVICES
+   ========================================================= */
+.tradein{ display:grid; grid-template-columns:auto 1fr; gap:22px; align-items:center; margin-top:28px;
+  background:var(--panel); border:3px solid var(--edge); box-shadow:7px 7px 0 rgba(0,0,0,.6); padding:20px; }
+.tradein .flyer{ width:230px; max-width:40vw; border:3px solid var(--edge-dim); box-shadow:5px 5px 0 rgba(0,0,0,.5); }
+.tradein h3{ font-family:var(--ff-pixel); font-size:.72rem; color:var(--yellow); margin:0 0 12px; }
+.tradein-copy > p{ margin:0 0 12px; color:var(--dim); font-size:1.05rem; }
+.tradein-copy > p b{ color:var(--text); font-weight:400; }
+.take-list{ list-style:none; margin:0 0 14px; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:5px 20px; }
+.take-list li{ font-size:1rem; color:var(--text); display:flex; gap:9px; }
+.take-list li::before{ content:"\25B8"; color:var(--cyan); }
+
+.about-grid{ display:grid; grid-template-columns:1.25fr .75fr; gap:22px; align-items:start; margin-top:22px; }
+.about-copy p{ color:var(--dim); font-size:1.12rem; margin:0 0 16px; }
+.about-copy p b{ color:var(--text); font-weight:400; }
+.about-copy .motto{ font-family:var(--ff-pixel); font-size:.72rem; line-height:1.9; color:var(--cyan);
+  border-left:4px solid var(--magenta); padding-left:16px; margin:0 0 18px; }
+.services{ display:flex; flex-wrap:wrap; gap:10px; }
+.services span{ font-family:var(--ff-pixel); font-size:.52rem; color:#06121a; padding:9px 11px; border:2px solid var(--edge); background:var(--green); }
+.services span:nth-child(2){ background:var(--cyan); } .services span:nth-child(3){ background:var(--yellow); } .services span:nth-child(4){ background:var(--magenta); }
+.about-media{ display:flex; flex-direction:column; gap:16px; }
+.about-media .frame{ position:relative; border:3px solid var(--edge-dim); box-shadow:5px 5px 0 rgba(0,0,0,.5); background:#05090f; }
+.about-media .frame img{ display:block; width:100%; height:auto; }
+.about-media .frame .cap{ position:absolute; top:0; left:0; z-index:2; font-family:var(--ff-pixel); font-size:.46rem; color:#06121a; background:var(--yellow); padding:4px 6px; }
+
+@media (max-width:820px){
+  .tradein{ grid-template-columns:1fr; justify-items:center; text-align:left; }
+  .tradein .flyer{ width:220px; max-width:70vw; }
+  .about-grid{ grid-template-columns:1fr; }
+  .about-media{ flex-direction:row; flex-wrap:wrap; }
+  .about-media .frame{ flex:1; min-width:160px; }
+  .take-list{ grid-template-columns:1fr; }
+}

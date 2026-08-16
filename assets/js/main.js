@@ -60,13 +60,13 @@
 
   /* ---------- Store hours (single source of truth) ---------- */
   var HOURS = [
-    { open: 12, close: 19 }, // Sun
-    { open: 12, close: 20 }, // Mon
-    { open: 12, close: 20 }, // Tue
-    { open: 12, close: 20 }, // Wed
-    { open: 12, close: 20 }, // Thu
-    { open: 12, close: 20 }, // Fri
-    { open: 12, close: 20 }  // Sat
+    { open: 11, close: 19 }, // Sun
+    { open: 11, close: 19 }, // Mon
+    { open: 11, close: 19 }, // Tue
+    { open: 11, close: 19 }, // Wed
+    { open: 11, close: 19 }, // Thu
+    { open: 11, close: 19 }, // Fri
+    { open: 11, close: 19 }  // Sat
   ];
   var DAY = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 
