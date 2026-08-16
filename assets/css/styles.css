@@ -432,7 +432,7 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
   position:fixed; top:0; left:0; z-index:9999;
   pointer-events:none;             /* never block clicks */
   width:210px; height:210px; margin:-105px 0 0 -105px;  /* 2x bigger, centered */
-  background:var(--green);
+  background:var(--cyan);
   /* 32-sided polygon (32-gon): faceted circle with visible flat edges */
   clip-path:polygon(50.000% 0.000%,69.134% 3.806%,85.355% 14.645%,96.194% 30.866%,100.000% 50.000%,96.194% 69.134%,85.355% 85.355%,69.134% 96.194%,50.000% 100.000%,30.866% 96.194%,14.645% 85.355%,3.806% 69.134%,0.000% 50.000%,3.806% 30.866%,14.645% 14.645%,30.866% 3.806%);
   image-rendering:pixelated;
