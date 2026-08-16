@@ -111,4 +111,36 @@
   }
   updateHours();
   setInterval(updateHours, 60 * 1000);
+
+  /* ---------- Retro cursor follower ---------- */
+  (function () {
+    if (window.matchMedia('(hover: none)').matches) return;       // touch device
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var sprite = document.createElement('div');
+    sprite.className = 'cursor-sprite';
+    document.body.appendChild(sprite);
+
+    var tx = -100, ty = -100, cx = -100, cy = -100, raf = null;
+
+    function frame() {
+      cx += (tx - cx) * 0.22;   // ease toward the pointer (slight lag)
+      cy += (ty - cy) * 0.22;
+      sprite.style.transform = 'translate(' + cx + 'px,' + cy + 'px)';
+      if (Math.abs(tx - cx) > 0.4 || Math.abs(ty - cy) > 0.4) {
+        raf = requestAnimationFrame(frame);
+      } else {
+        raf = null;
+      }
+    }
+
+    window.addEventListener('pointermove', function (e) {
+      tx = e.clientX; ty = e.clientY;
+      sprite.classList.add('on');
+      sprite.classList.remove('thrust'); void sprite.offsetWidth; sprite.classList.add('thrust');
+      if (!raf) raf = requestAnimationFrame(frame);
+    }, { passive: true });
+
+    window.addEventListener('pointerleave', function () { sprite.classList.remove('on'); });
+  })();
 })();
