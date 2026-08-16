@@ -245,18 +245,16 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
 .gframe .glabel{ position:absolute; top:0; left:0; z-index:3; font-family:var(--ff-pixel); font-size:.44rem; color:#06121a; background:var(--yellow); padding:4px 6px; }
 .gframe .ph{ aspect-ratio:1/1; }
 .gframe:nth-child(1){ grid-column:span 2; grid-row:span 2; } .gframe:nth-child(1) .ph{ aspect-ratio:auto; height:100%; }
-.gframe:nth-child(4){ grid-row:span 2; } .gframe:nth-child(4) .ph{ aspect-ratio:auto; height:100%; }
-.gframe:nth-child(6){ grid-column:span 2; } .gframe:nth-child(6) .ph{ aspect-ratio:auto; height:100%; }
 
 /* =========================================================
    SHOP ONLINE — continue panels
    ========================================================= */
-.online-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.online-row{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
 .oc{ background:var(--panel); border:3px solid var(--edge); box-shadow:6px 6px 0 rgba(0,0,0,.55); padding:22px 20px; display:flex; flex-direction:column; gap:12px; transition:transform .08s steps(1); }
 .oc:hover{ transform:translate(-2px,-2px); }
 .oc .oh{ font-family:var(--ff-pixel); font-size:.5rem; color:var(--dim); }
 .oc h3{ font-family:var(--ff-pixel); font-size:.9rem; margin:0; }
-.oc.ebay h3{ color:var(--cyan); } .oc.fb h3{ color:var(--blue); }
+.oc.ebay h3{ color:var(--cyan); } .oc.fb h3{ color:var(--blue); } .oc.ig h3{ color:var(--magenta); }
 .oc p{ margin:0; font-size:1.08rem; color:var(--dim); }
 .oc .go{ margin-top:4px; font-family:var(--ff-pixel); font-size:.56rem; color:var(--yellow); }
 
@@ -325,8 +323,7 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
   .online-row{ grid-template-columns:1fr; }
   .visit-grid{ grid-template-columns:1fr; }
   .gallery{ grid-template-columns:1fr 1fr; }
-  .gframe:nth-child(1),.gframe:nth-child(6){ grid-column:span 2; }
-  .gframe:nth-child(4){ grid-row:auto; }
+  .gframe:nth-child(1){ grid-column:span 2; }
 }
 @media (max-width:620px){
   :root{ --bezel:8px; }
@@ -336,6 +333,6 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
   .hud-right .hud-status{ font-size:.5rem; }
   .items{ grid-template-columns:1fr; }
   .gallery{ grid-template-columns:1fr; }
-  .gframe:nth-child(1),.gframe:nth-child(6),.gframe:nth-child(4){ grid-column:span 1; grid-row:auto; }
+  .gframe:nth-child(1){ grid-column:span 1; grid-row:auto; }
   .crt-bezel{ border-radius:16px; }
 }
