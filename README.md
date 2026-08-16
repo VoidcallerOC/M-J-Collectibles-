@@ -24,7 +24,7 @@ vercel.json           Static hosting config (clean URLs, asset caching)
 |---|---|
 | **Address** | 847 Queen St, Southington, CT 06489 |
 | **Phone** | (860) 479-9223 |
-| **Hours** | Mon–Sat 12:00 PM – 8:00 PM · Sun 12:00 PM – 7:00 PM |
+| **Hours** | 11:00 AM – 7:00 PM, every day (Mon–Sun) |
 | **eBay** | https://www.ebay.com/str/mjvideogamesct1 |
 | **Facebook** | https://www.facebook.com/MJVideoGamesandSportsCollectibles |
 
