@@ -35,11 +35,11 @@
 }
 
 *{ box-sizing:border-box; }
-html{ -webkit-text-size-adjust:100%; font-size:17.5px; }
+html{ -webkit-text-size-adjust:100%; font-size:17.5px; overflow-x:clip; }
 body{
   margin:0; background:var(--screen-2); color:var(--text);
   font-family:var(--ff-term); font-size:23px; line-height:1.35;
-  overflow-x:hidden; letter-spacing:.01em;
+  overflow-x:clip; max-width:100%; letter-spacing:.01em;
   image-rendering:pixelated;
   padding:var(--bezel);   /* keep all content inside the CRT bezel */
 }
@@ -202,7 +202,7 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
 .hud-stats .st:nth-child(3) .n{ color:var(--green); }
 
 /* Attract-mode ticker */
-.attract{ overflow:hidden; border-top:3px solid var(--edge-dim); border-bottom:3px solid var(--edge-dim); padding:10px 0; background:var(--screen-2); }
+.attract{ overflow:hidden; max-width:100%; border-top:3px solid var(--edge-dim); border-bottom:3px solid var(--edge-dim); padding:10px 0; background:var(--screen-2); }
 .attract-tr{ display:flex; gap:36px; width:max-content; animation:scroll 26s linear infinite; font-family:var(--ff-pixel); font-size:.56rem; }
 .attract:hover .attract-tr{ animation-play-state:paused; }
 .attract-tr span{ display:inline-flex; gap:36px; align-items:center; color:var(--text); }
