@@ -332,6 +332,7 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
   .hud-menu-btn{ display:inline-block; }
   .hud-right .hud-status{ font-size:.5rem; }
   .items{ grid-template-columns:1fr; }
+  .item-scr{ aspect-ratio:16/9; }   /* shorter category photos on phones */
   .gallery{ grid-template-columns:1fr; }
   .gframe:nth-child(1){ grid-column:span 1; grid-row:auto; }
   .gframe:nth-child(1) .ph{ aspect-ratio:4/3; height:auto; }
