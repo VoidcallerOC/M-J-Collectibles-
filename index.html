@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/assets/css/styles.css?v=10" />
+  <link rel="stylesheet" href="/assets/css/styles.css?v=11" />
 
   <script type="application/ld+json">
   {
@@ -82,6 +82,7 @@
     <a href="#photos"><span class="cur">▶</span> Inside the Shop Gallery</a>
     <a href="#online"><span class="cur">▶</span> Shop Online</a>
     <a href="#visit"><span class="cur">▶</span> Visit</a>
+    <a href="#contact"><span class="cur">▶</span> Contact</a>
   </nav>
 
   <main id="top">
@@ -110,6 +111,7 @@
         <a href="#photos"><span class="cur">▶</span> Inside the Shop Gallery <span class="k">04</span></a>
         <a href="#online"><span class="cur">▶</span> Shop Online <span class="k">05</span></a>
         <a href="#visit"><span class="cur">▶</span> Visit The Shop <span class="k">06</span></a>
+        <a href="#contact"><span class="cur">▶</span> Contact Us <span class="k">07</span></a>
       </nav>
 
       <div class="hud-stats" data-reveal>
@@ -449,6 +451,51 @@
       </div>
     </section>
 
+    <!-- ============ CONTACT ============ -->
+    <section class="scene wrap" id="contact">
+      <div class="scene-head">
+        <span class="tag" data-reveal>Drop Us A Line</span>
+        <h2 class="h-scene" data-reveal>CONTACT <span class="m">US</span></h2>
+        <p class="sub" data-reveal>Questions, trade-in offers, special orders — send it over and we'll get back to you. Prefer to talk? Call or text <a href="tel:+18604799223">860-479-9223</a>.</p>
+      </div>
+      <div class="contact-wrap" data-reveal>
+        <form class="cform term" id="contactForm" novalidate>
+          <div class="bar"><span>CONTACT.EXE</span><span>_</span></div>
+          <div class="cfield">
+            <label for="cf-name">NAME</label>
+            <input id="cf-name" name="name" type="text" placeholder="Your full name" autocomplete="name" required />
+          </div>
+          <div class="cfield">
+            <label for="cf-email">EMAIL</label>
+            <input id="cf-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+          </div>
+          <div class="cfield">
+            <label for="cf-phone">PHONE NUMBER</label>
+            <input id="cf-phone" name="phone" type="tel" placeholder="(000) 000-0000" autocomplete="tel" />
+          </div>
+          <div class="cfield">
+            <label for="cf-type">TYPE OF REQUEST</label>
+            <select id="cf-type" name="type">
+              <option>Trade-In</option>
+              <option>Buy / Sell</option>
+              <option>Special Order</option>
+              <option>Repair</option>
+              <option>Other Question</option>
+            </select>
+          </div>
+          <div class="cfield">
+            <label for="cf-msg">MESSAGE</label>
+            <textarea id="cf-msg" name="message" rows="5" placeholder="Write your message…" required></textarea>
+          </div>
+          <div class="cform-foot">
+            <button type="submit" class="cbtn">▶ SEND MESSAGE</button>
+            <span class="cform-status" id="cformStatus" role="status" aria-live="polite"></span>
+          </div>
+          <p class="cform-alt">Or email us directly at <a href="mailto:rockythetockcat1@aol.com">rockythetockcat1@aol.com</a></p>
+        </form>
+      </div>
+    </section>
+
     <!-- ============ FOOTER ============ -->
     <footer class="footer">
       <div class="wrap">
@@ -460,6 +507,7 @@
           <a href="#about">ABOUT</a>
           <a href="#online">SHOP ONLINE</a>
           <a href="#visit">VISIT</a>
+          <a href="#contact">CONTACT</a>
           <a href="https://www.ebay.com/str/mjvideogamesct1" target="_blank" rel="noopener">EBAY</a>
           <a href="https://www.instagram.com/mjvideogames/" target="_blank" rel="noopener">INSTAGRAM</a>
           <a href="https://www.facebook.com/MJVideoGamesandSportsCollectibles" target="_blank" rel="noopener">FACEBOOK</a>
@@ -470,6 +518,6 @@
 
   </main>
 
-  <script src="/assets/js/main.js?v=10" defer></script>
+  <script src="/assets/js/main.js?v=11" defer></script>
 </body>
 </html>

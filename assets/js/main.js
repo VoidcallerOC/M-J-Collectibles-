@@ -190,4 +190,31 @@
 
     window.addEventListener('pointerleave', function () { sprite.classList.remove('on'); });
   })();
+
+  /* ---------- Contact form (composes an email to the shop) ---------- */
+  var cform = document.getElementById('contactForm');
+  if (cform) {
+    var SHOP_EMAIL = 'rockythetockcat1@aol.com';
+    var val = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
+    cform.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var status = document.getElementById('cformStatus');
+      var name = val('cf-name'), email = val('cf-email'), phone = val('cf-phone'),
+          type = val('cf-type') || 'Other Question', msg = val('cf-msg');
+      if (!name || !email || !msg) {
+        if (status) { status.className = 'cform-status err'; status.textContent = 'ADD YOUR NAME, EMAIL & MESSAGE'; }
+        return;
+      }
+      var subject = '[' + type + '] Website message from ' + name;
+      var body = 'Name: ' + name + '\n' +
+                 'Email: ' + email + '\n' +
+                 'Phone: ' + (phone || '—') + '\n' +
+                 'Type of request: ' + type + '\n\n' +
+                 msg + '\n';
+      if (status) { status.className = 'cform-status ok'; status.textContent = 'OPENING YOUR EMAIL APP…'; }
+      window.location.href = 'mailto:' + SHOP_EMAIL +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
+    });
+  }
 })();
