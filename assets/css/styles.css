@@ -35,14 +35,18 @@
 }
 
 *{ box-sizing:border-box; }
-html{ -webkit-text-size-adjust:100%; font-size:17.5px; overflow-x:clip; }
+html{ -webkit-text-size-adjust:100%; font-size:17.5px; }
 body{
   margin:0; background:var(--screen-2); color:var(--text);
   font-family:var(--ff-term); font-size:23px; line-height:1.35;
-  overflow-x:clip; max-width:100%; letter-spacing:.01em;
+  max-width:100%; letter-spacing:.01em;
   image-rendering:pixelated;
   padding:var(--bezel);   /* keep all content inside the CRT bezel */
 }
+/* Contain wide content (e.g. the attract ticker) here, NOT on html/body —
+   the sticky .hud header is a sibling of <main>, so clipping main keeps the
+   page from overflowing sideways without breaking the header's stickiness. */
+main{ display:block; overflow-x:clip; }
 img{ max-width:100%; display:block; }
 a{ color:inherit; text-decoration:none; }
 button{ font-family:inherit; cursor:pointer; border:0; background:none; color:inherit; }
