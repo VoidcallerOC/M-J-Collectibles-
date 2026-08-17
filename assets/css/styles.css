@@ -334,6 +334,7 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
   .items{ grid-template-columns:1fr; }
   .gallery{ grid-template-columns:1fr; }
   .gframe:nth-child(1){ grid-column:span 1; grid-row:auto; }
+  .gframe:nth-child(1) .ph{ aspect-ratio:4/3; height:auto; }
   .crt-bezel{ border-radius:16px; }
 }
 
