@@ -331,9 +331,11 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
   .hud .oneup,.hud-call{ display:none; }
   .hud-menu-btn{ display:inline-block; }
   .hud-right .hud-status{ font-size:.5rem; }
-  .items{ grid-template-columns:1fr; }
-  .item-scr{ aspect-ratio:16/9; }   /* shorter category photos on phones */
-  .gallery{ grid-template-columns:1fr; }
+  .items{ grid-template-columns:1fr 1fr; gap:12px; }   /* compact 2-up category grid */
+  .item-scr{ aspect-ratio:4/3; }
+  .item-bar{ flex-wrap:wrap; font-size:.5rem; padding:9px 9px; }
+  .item-desc{ font-size:.92rem; padding:10px 11px 12px; }
+  .gallery{ grid-template-columns:1fr 1fr; gap:10px; }  /* smaller gallery tiles */
   .gframe:nth-child(1){ grid-column:span 1; grid-row:auto; }
   .gframe:nth-child(1) .ph{ aspect-ratio:4/3; height:auto; }
   .crt-bezel{ border-radius:16px; }
