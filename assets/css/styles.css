@@ -244,6 +244,19 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
 /* =========================================================
    PHOTO MODE — gallery
    ========================================================= */
+.gallery-filter{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:16px; }
+.gallery-filter label{ font-family:var(--ff-pixel); font-size:.54rem; color:var(--yellow); }
+.gallery-filter select{
+  background:#0a1120; color:var(--text); border:3px solid var(--edge-dim); box-shadow:4px 4px 0 rgba(0,0,0,.5);
+  font-family:var(--ff-term); font-size:1.12rem; padding:9px 38px 9px 12px; border-radius:0;
+  -webkit-appearance:none; appearance:none; cursor:pointer; transition:border-color .08s steps(1);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%2333e6d4' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 12px center;
+}
+.gallery-filter select:focus{ outline:none; border-color:var(--cyan); }
+.gallery-filter select option{ background:#0a1120; color:var(--text); }
+.gal-count{ font-family:var(--ff-pixel); font-size:.46rem; color:var(--dim); }
+.gframe.hide{ display:none; }
 .gallery{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
 .gframe{ border:3px solid var(--edge-dim); box-shadow:5px 5px 0 rgba(0,0,0,.5); position:relative; }
 .gframe .glabel{ position:absolute; top:0; left:0; z-index:3; font-family:var(--ff-pixel); font-size:.44rem; color:#06121a; background:var(--yellow); padding:4px 6px; }
@@ -413,11 +426,25 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
 /* We Carry — systems catalog */
 .carry{ margin-top:26px; }
 .carry-head{ margin-bottom:18px; }
-.carry-list{ list-style:none; margin:0 0 26px; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:7px 22px; }
-.carry-list li{ font-size:1.04rem; color:var(--text); display:flex; gap:9px; align-items:baseline; }
-.carry-list li::before{ content:"\25B8"; color:var(--magenta); font-size:.8em; }
-.carry-sub{ font-family:var(--ff-pixel); font-size:.66rem; color:var(--cyan); margin:0 0 16px; padding-top:6px; border-top:2px dashed var(--edge-dim); }
-@media (max-width:620px){ .carry-list{ grid-template-columns:1fr; } }
+/* What We Carry — collapsible dropdown categories */
+.carry-acc{ display:grid; gap:10px; }
+.cacc{ background:var(--panel); border:3px solid var(--edge-dim); box-shadow:5px 5px 0 rgba(0,0,0,.5); }
+.cacc > summary{
+  list-style:none; cursor:pointer; display:flex; align-items:center; gap:12px;
+  padding:15px 16px; font-family:var(--ff-pixel); font-size:.66rem; color:var(--text);
+  -webkit-user-select:none; user-select:none; transition:color .1s steps(1);
+}
+.cacc > summary::-webkit-details-marker{ display:none; }
+.cacc > summary::before{ content:"\25B8"; color:var(--yellow); font-size:.9em; transition:transform .12s steps(3); }
+.cacc[open] > summary::before{ transform:rotate(90deg); }
+.cacc > summary:hover{ color:var(--cyan); }
+.cacc .cc-sub{ margin-left:auto; font-size:.5rem; color:var(--dim); }
+.cacc-body{ padding:0 16px 16px; }
+.cacc-body ul{ list-style:none; margin:6px 0 0; padding:14px 0 0; border-top:2px dashed var(--edge-dim);
+  display:grid; grid-template-columns:1fr 1fr; gap:7px 22px; }
+.cacc-body li{ font-size:1.02rem; color:var(--text); display:flex; gap:9px; align-items:baseline; }
+.cacc-body li::before{ content:"\25C6"; color:var(--cyan); font-size:.7em; }
+@media (max-width:620px){ .cacc-body ul{ grid-template-columns:1fr; } .cacc .cc-sub{ display:none; } }
 .carry-title{ font-family:var(--ff-pixel); font-size:clamp(1.05rem,3.4vw,1.7rem); color:var(--text); margin:6px 0 0; text-shadow:4px 4px 0 rgba(0,0,0,.6); }
 .carry-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
 .cman{ background:var(--panel); border:3px solid var(--edge-dim); box-shadow:5px 5px 0 rgba(0,0,0,.5); padding:18px 16px; }

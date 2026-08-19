@@ -217,4 +217,23 @@
         '&body=' + encodeURIComponent(body);
     });
   }
+
+  /* ---------- Gallery category filter ---------- */
+  var galFilter = document.getElementById('galFilter');
+  var gallery = document.getElementById('gallery');
+  if (galFilter && gallery) {
+    var tiles = Array.prototype.slice.call(gallery.querySelectorAll('.gframe'));
+    var galCount = document.getElementById('galCount');
+    function applyFilter() {
+      var val = galFilter.value, shown = 0;
+      tiles.forEach(function (t) {
+        var match = (val === 'all' || t.getAttribute('data-cat') === val);
+        t.classList.toggle('hide', !match);
+        if (match) shown++;
+      });
+      if (galCount) galCount.textContent = shown + (shown === 1 ? ' PHOTO' : ' PHOTOS');
+    }
+    galFilter.addEventListener('change', applyFilter);
+    applyFilter();
+  }
 })();
