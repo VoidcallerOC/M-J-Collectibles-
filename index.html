@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/assets/css/styles.css?v=18" />
+  <link rel="stylesheet" href="/assets/css/styles.css?v=19" />
 
   <script type="application/ld+json">
   {
@@ -72,6 +72,38 @@
       <button class="hud-menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">MENU</button>
     </div>
   </header>
+
+  <!-- Primary nav with dropdown menus -->
+  <nav class="topnav" id="topnav" aria-label="Primary">
+    <a class="tn-item" href="#top">HOME</a>
+    <div class="tn-drop">
+      <button type="button" class="tn-item tn-btn" aria-expanded="false">SHOP <span class="tn-car">▾</span></button>
+      <div class="tn-menu">
+        <a href="#select">Game Select</a>
+        <a href="#about">What We Carry</a>
+        <a href="#photos">Inside the Shop</a>
+      </div>
+    </div>
+    <div class="tn-drop">
+      <button type="button" class="tn-item tn-btn" aria-expanded="false">TRADE <span class="tn-car">▾</span></button>
+      <div class="tn-menu">
+        <a href="#howto">Buy · Sell · Trade</a>
+        <a href="#howto">What We Take In Trade</a>
+        <a href="#howto">Trade-In Program</a>
+      </div>
+    </div>
+    <a class="tn-item" href="#about">ABOUT</a>
+    <div class="tn-drop">
+      <button type="button" class="tn-item tn-btn" aria-expanded="false">SHOP ONLINE <span class="tn-car">▾</span></button>
+      <div class="tn-menu">
+        <a href="https://www.ebay.com/str/mjvideogamesct1" target="_blank" rel="noopener">eBay Store</a>
+        <a href="https://www.instagram.com/mjvideogames/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/MJVideoGamesandSportsCollectibles" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+    <a class="tn-item" href="#visit">VISIT</a>
+    <a class="tn-item" href="#contact">CONTACT</a>
+  </nav>
 
   <!-- Mobile drawer -->
   <div class="drawer-bg" id="drawerBg" aria-hidden="true"></div>
@@ -586,6 +618,6 @@
 
   </main>
 
-  <script src="/assets/js/main.js?v=18" defer></script>
+  <script src="/assets/js/main.js?v=19" defer></script>
 </body>
 </html>

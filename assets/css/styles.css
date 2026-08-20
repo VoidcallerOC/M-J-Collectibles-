@@ -110,6 +110,29 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
 .hud-call{ font-family:var(--ff-pixel); font-size:.56rem; color:var(--cyan); }
 .hud-menu-btn{ display:none; font-family:var(--ff-pixel); font-size:.6rem; color:var(--yellow); padding:6px 9px; border:2px solid var(--yellow); }
 
+/* Primary nav bar with dropdown menus */
+.topnav{ display:flex; flex-wrap:wrap; align-items:stretch; gap:1px;
+  background:var(--panel-2); border-bottom:3px solid var(--edge-dim);
+  padding:3px clamp(10px,4vw,28px); position:relative; z-index:70; }
+.tn-item{ font-family:var(--ff-pixel); font-size:.55rem; color:var(--dim);
+  padding:13px 12px; display:inline-flex; align-items:center; gap:7px; white-space:nowrap;
+  background:none; border:0; cursor:pointer; transition:color .1s steps(1), background .1s steps(1); }
+.tn-item:hover, .tn-drop:hover > .tn-btn, .tn-drop.open > .tn-btn{ color:var(--cyan); background:rgba(51,230,212,.08); }
+.tn-drop{ position:relative; display:inline-flex; }
+.tn-car{ color:var(--yellow); font-size:.85em; transition:transform .12s steps(2); }
+.tn-drop:hover .tn-car, .tn-drop.open .tn-car{ transform:rotate(180deg); }
+.tn-menu{ position:absolute; top:100%; left:0; min-width:210px; max-width:calc(100vw - 32px); z-index:75;
+  background:var(--panel-2); border:3px solid var(--edge); box-shadow:6px 6px 0 rgba(0,0,0,.6);
+  flex-direction:column; padding:6px; display:none; }
+.tn-drop:hover .tn-menu, .tn-drop.open .tn-menu{ display:flex; }
+.tn-menu a{ font-family:var(--ff-pixel); font-size:.54rem; color:var(--text); padding:12px 12px; display:block; white-space:nowrap; }
+.tn-menu a:hover{ color:#06121a; background:var(--cyan); }
+@media (max-width:620px){
+  .topnav{ gap:0; padding:2px 6px; }
+  .tn-item{ font-size:.5rem; padding:12px 8px; gap:5px; }
+  .tn-menu{ min-width:170px; }
+}
+
 /* Section scaffolding */
 .scene{ padding:clamp(38px,7vw,72px) 0; position:relative; }
 .scene-head{ margin-bottom:26px; }
@@ -349,7 +372,7 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
   .hud-menu-btn{ display:inline-block; }
   .hud-right .hud-status{ font-size:.5rem; }
   .items{ grid-template-columns:1fr 1fr; gap:12px; }   /* compact 2-up category grid */
-  .item-scr{ aspect-ratio:4/3; }
+  .item-scr{ aspect-ratio:auto; height:150px; }   /* fixed, can't balloon */
   .item-bar{ flex-wrap:wrap; font-size:.5rem; padding:9px 9px; }
   .item-desc{ font-size:.92rem; padding:10px 11px 12px; }
   .gallery{ grid-template-columns:1fr 1fr; gap:10px; }  /* smaller gallery tiles */

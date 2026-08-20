@@ -236,4 +236,34 @@
     galFilter.addEventListener('change', applyFilter);
     applyFilter();
   }
+
+  /* ---------- Primary nav dropdowns (tap to open on touch) ---------- */
+  var topnav = document.getElementById('topnav');
+  if (topnav) {
+    var drops = Array.prototype.slice.call(topnav.querySelectorAll('.tn-drop'));
+    function closeAll(except) {
+      drops.forEach(function (d) {
+        if (d === except) return;
+        d.classList.remove('open');
+        var b = d.querySelector('.tn-btn'); if (b) b.setAttribute('aria-expanded', 'false');
+      });
+    }
+    drops.forEach(function (d) {
+      var btn = d.querySelector('.tn-btn');
+      if (!btn) return;
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        var willOpen = !d.classList.contains('open');
+        closeAll(d);
+        d.classList.toggle('open', willOpen);
+        btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      });
+      // Close after choosing a destination
+      d.querySelectorAll('.tn-menu a').forEach(function (a) {
+        a.addEventListener('click', function () { closeAll(null); });
+      });
+    });
+    document.addEventListener('click', function (e) { if (!topnav.contains(e.target)) closeAll(null); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(null); });
+  }
 })();
