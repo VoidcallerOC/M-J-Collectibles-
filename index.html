@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/assets/css/styles.css?v=19" />
+  <link rel="stylesheet" href="/assets/css/styles.css?v=22" />
 
   <script type="application/ld+json">
   {
@@ -62,57 +62,65 @@
   <div class="crt-bezel" aria-hidden="true"></div>
   <div class="power-flash" aria-hidden="true"></div>
 
-  <!-- HUD BAR -->
-  <header class="hud">
-    <span class="oneup px">1UP <b>M&amp;J</b></span>
-    <span class="hud-brand"><span>M<span class="amp">&amp;</span>J VIDEO GAMES</span></span>
-    <div class="hud-right">
-      <span class="hud-status off" id="hudStatus"><span class="dot"></span>––––</span>
+  <!-- HUD + primary nav (sticky together) -->
+  <div class="site-head">
+    <header class="hud">
+      <a class="oneup px" href="#top">1UP <b>M&J</b></a>
+      <a class="hud-brand" href="#top"><span>M<span class="amp">&</span>J VIDEO GAMES</span></a>
+      <div class="hud-right">
+        <span class="hud-status off" id="hudStatus"><span class="dot"></span>––––</span>
+        <button class="hud-menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="drawer">MENU</button>
+      </div>
       <a class="hud-call" href="tel:+18604799223">☎ 860-479-9223</a>
-      <button class="hud-menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">MENU</button>
-    </div>
-  </header>
+    </header>
 
-  <!-- Primary nav with dropdown menus -->
-  <nav class="topnav" id="topnav" aria-label="Primary">
-    <a class="tn-item" href="#top">HOME</a>
-    <div class="tn-drop">
-      <button type="button" class="tn-item tn-btn" aria-expanded="false">SHOP <span class="tn-car">▾</span></button>
-      <div class="tn-menu">
-        <a href="#select">Game Select</a>
-        <a href="#about">What We Carry</a>
-        <a href="#photos">Inside the Shop</a>
+    <nav class="topnav" id="topnav" aria-label="Primary">
+      <a class="tn-item" href="#top">HOME</a>
+      <div class="tn-drop">
+        <a class="tn-item" href="#select">SHOP</a>
+        <button type="button" class="tn-chev" aria-expanded="false" aria-haspopup="true" aria-label="Shop menu">
+          <span class="tn-car">▾</span>
+        </button>
+        <div class="tn-menu">
+          <a href="#cat-games">Games</a>
+          <a href="#cat-consoles">Consoles</a>
+          <a href="#cat-funko">Funko Pops</a>
+          <a href="#cat-figures">Figures</a>
+          <a href="#cat-cards">Trading Cards</a>
+          <a href="#cat-memorabilia">Wrestling & Sports</a>
+          <a href="#carry">What We Carry</a>
+          <a href="#photos">Inside the Shop</a>
+          <a href="https://www.ebay.com/str/mjvideogamesct1" target="_blank" rel="noopener">eBay Store ↗</a>
+        </div>
       </div>
-    </div>
-    <div class="tn-drop">
-      <button type="button" class="tn-item tn-btn" aria-expanded="false">TRADE <span class="tn-car">▾</span></button>
-      <div class="tn-menu">
-        <a href="#howto">Buy · Sell · Trade</a>
-        <a href="#howto">What We Take In Trade</a>
-        <a href="#howto">Trade-In Program</a>
-      </div>
-    </div>
-    <a class="tn-item" href="#about">ABOUT</a>
-    <div class="tn-drop">
-      <button type="button" class="tn-item tn-btn" aria-expanded="false">SHOP ONLINE <span class="tn-car">▾</span></button>
-      <div class="tn-menu">
-        <a href="https://www.ebay.com/str/mjvideogamesct1" target="_blank" rel="noopener">eBay Store</a>
-        <a href="https://www.instagram.com/mjvideogames/" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.facebook.com/MJVideoGamesandSportsCollectibles" target="_blank" rel="noopener">Facebook</a>
-      </div>
-    </div>
-    <a class="tn-item" href="#visit">VISIT</a>
-    <a class="tn-item" href="#contact">CONTACT</a>
-  </nav>
+      <a class="tn-item" href="#howto">TRADE-INS</a>
+      <a class="tn-item" href="#about">ABOUT</a>
+      <a class="tn-item" href="#visit">VISIT</a>
+      <a class="tn-item" href="#contact">CONTACT</a>
+    </nav>
+  </div>
 
-  <!-- Mobile drawer -->
+  <!-- Mobile drawer — same tree as desktop, Shop is an accordion -->
   <div class="drawer-bg" id="drawerBg" aria-hidden="true"></div>
   <nav class="drawer" id="drawer" aria-label="Menu">
-    <a href="#select"><span class="cur">▶</span> Game Select</a>
-    <a href="#howto"><span class="cur">▶</span> Trade-In</a>
+    <a class="drawer-call" href="tel:+18604799223">☎ 860-479-9223</a>
+    <a href="#top"><span class="cur">▶</span> Home</a>
+    <details class="drawer-drop">
+      <summary><span class="cur">▶</span> Shop <span class="tn-car">▾</span></summary>
+      <div class="drawer-sub">
+        <a href="#cat-games">Games</a>
+        <a href="#cat-consoles">Consoles</a>
+        <a href="#cat-funko">Funko Pops</a>
+        <a href="#cat-figures">Figures</a>
+        <a href="#cat-cards">Trading Cards</a>
+        <a href="#cat-memorabilia">Wrestling & Sports</a>
+        <a href="#carry">What We Carry</a>
+        <a href="#photos">Inside the Shop</a>
+        <a href="https://www.ebay.com/str/mjvideogamesct1" target="_blank" rel="noopener">eBay Store ↗</a>
+      </div>
+    </details>
+    <a href="#howto"><span class="cur">▶</span> Trade-Ins</a>
     <a href="#about"><span class="cur">▶</span> About</a>
-    <a href="#photos"><span class="cur">▶</span> Inside the Shop Gallery</a>
-    <a href="#online"><span class="cur">▶</span> Shop Online</a>
     <a href="#visit"><span class="cur">▶</span> Visit</a>
     <a href="#contact"><span class="cur">▶</span> Contact</a>
   </nav>
@@ -133,17 +141,13 @@
       </h1>
       <p class="credit px" data-reveal>FOR ALL YOUR RETRO-GAMING &amp; MEMORABILIA NEEDS</p>
 
-      <p class="press px blink" data-reveal>▶ PRESS START</p>
+      <a class="press px blink" href="#select" data-reveal>▶ PRESS START</a>
 
       <nav class="menu" id="mainMenu" aria-label="Main menu" data-reveal>
         <div class="menu-title">◄ MAIN MENU ►</div>
-        <a href="#select"><span class="cur">▶</span> Game Select <span class="k">01</span></a>
-        <a href="#howto"><span class="cur">▶</span> Buy · Sell · Trade <span class="k">02</span></a>
-        <a href="#about"><span class="cur">▶</span> About The Shop <span class="k">03</span></a>
-        <a href="#photos"><span class="cur">▶</span> Inside the Shop Gallery <span class="k">04</span></a>
-        <a href="#online"><span class="cur">▶</span> Shop Online <span class="k">05</span></a>
-        <a href="#visit"><span class="cur">▶</span> Visit The Shop <span class="k">06</span></a>
-        <a href="#contact"><span class="cur">▶</span> Contact Us <span class="k">07</span></a>
+        <a href="#select"><span class="cur">▶</span> Shop <span class="k">01</span></a>
+        <a href="#howto"><span class="cur">▶</span> Trade-Ins <span class="k">02</span></a>
+        <a href="#visit"><span class="cur">▶</span> Visit The Shop <span class="k">03</span></a>
       </nav>
 
       <div class="hud-stats" data-reveal>
@@ -169,32 +173,32 @@
       </div>
 
       <div class="items">
-        <a class="item" href="#visit" style="--c:var(--cyan)" data-reveal>
+        <a class="item" id="cat-games" href="#carry-games" style="--c:var(--cyan)" data-reveal>
           <figure class="item-scr ph"><picture><source type="image/webp" srcset="/assets/img/photos/shop-16.webp?v=1"><img class="ph-img" src="/assets/img/photos/shop-16.jpg?v=1" loading="lazy" alt="Retro and modern games at M&amp;J" onerror="this.remove()"></picture><figcaption class="ph-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="14" rx="1"/><path d="M8 3h8M12 6v14"/></svg><span class="l">RETRO GAMES</span><span class="s">PHOTO 01</span></figcaption></figure>
           <div class="item-bar"><span class="no">01</span> RETRO &amp; MODERN <span class="sel">▶</span></div>
           <p class="item-desc"><b>NES to next-gen.</b> Best new releases plus hard-to-find retro titles across every system.</p>
         </a>
-        <a class="item" href="#visit" style="--c:var(--magenta)" data-reveal>
+        <a class="item" id="cat-consoles" href="#carry-games" style="--c:var(--magenta)" data-reveal>
           <figure class="item-scr ph"><picture><source type="image/webp" srcset="/assets/img/photos/shop-1.webp?v=1"><img class="ph-img" src="/assets/img/photos/shop-1.jpg?v=1" loading="lazy" alt="Consoles and accessories" onerror="this.remove()"></picture><figcaption class="ph-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="10" rx="5"/><path d="M7 12h3M8.5 10.5v3M15 11h.01M18 13h.01"/></svg><span class="l">CONSOLES</span><span class="s">PHOTO 02</span></figcaption></figure>
           <div class="item-bar"><span class="no">02</span> CONSOLES <span class="sel">▶</span></div>
           <p class="item-desc"><b>Plug in &amp; play.</b> Systems, controllers, cables and add-ons — tested and ready.</p>
         </a>
-        <a class="item" href="#visit" style="--c:var(--yellow)" data-reveal>
+        <a class="item" id="cat-funko" href="#carry-funko" style="--c:var(--yellow)" data-reveal>
           <figure class="item-scr ph"><picture><source type="image/webp" srcset="/assets/img/photos/shop-2.webp?v=1"><img class="ph-img" src="/assets/img/photos/shop-2.jpg?v=1" loading="lazy" alt="Funko Pops wall" onerror="this.remove()"></picture><figcaption class="ph-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="3" width="12" height="18" rx="2"/><circle cx="12" cy="9" r="3"/></svg><span class="l">FUNKO POPS</span><span class="s">PHOTO 03</span></figcaption></figure>
           <div class="item-bar"><span class="no">03</span> FUNKO POPS <span class="sel">▶</span></div>
           <p class="item-desc"><b>Common to chase.</b> A rotating wall across movies, games and sports.</p>
         </a>
-        <a class="item" href="#visit" style="--c:var(--green)" data-reveal>
+        <a class="item" id="cat-figures" href="#carry-funko" style="--c:var(--green)" data-reveal>
           <figure class="item-scr ph"><picture><source type="image/webp" srcset="/assets/img/photos/shop-18.webp?v=1"><img class="ph-img" src="/assets/img/photos/shop-18.jpg?v=1" loading="lazy" alt="Action figures" onerror="this.remove()"></picture><figcaption class="ph-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="2.5"/><path d="M12 8v7M6 11h12M9 21l3-6 3 6"/></svg><span class="l">FIGURES</span><span class="s">PHOTO 04</span></figcaption></figure>
           <div class="item-bar"><span class="no">04</span> ACTION FIGURES <span class="sel">▶</span></div>
           <p class="item-desc"><b>Carded &amp; loose.</b> Vintage and modern figures — including hard-to-find grails.</p>
         </a>
-        <a class="item" href="#visit" style="--c:var(--blue)" data-reveal>
+        <a class="item" id="cat-cards" href="#carry-cards" style="--c:var(--blue)" data-reveal>
           <figure class="item-scr ph"><picture><source type="image/webp" srcset="/assets/img/photos/shop-11.webp?v=1"><img class="ph-img" src="/assets/img/photos/shop-11.jpg?v=1" loading="lazy" alt="Trading cards" onerror="this.remove()"></picture><figcaption class="ph-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="12" height="16" rx="1"/><rect x="9" y="7" width="11" height="13" rx="1"/></svg><span class="l">CARDS</span><span class="s">PHOTO 05</span></figcaption></figure>
           <div class="item-bar"><span class="no">05</span> TRADING CARDS <span class="sel">▶</span></div>
           <p class="item-desc"><b>Singles to sealed.</b> Sports &amp; gaming cards — vintage to the latest sets.</p>
         </a>
-        <a class="item" href="#visit" style="--c:var(--orange)" data-reveal>
+        <a class="item" id="cat-memorabilia" href="#carry-memorabilia" style="--c:var(--orange)" data-reveal>
           <figure class="item-scr ph"><picture><source type="image/webp" srcset="/assets/img/photos/shop-10.webp?v=1"><img class="ph-img" src="/assets/img/photos/shop-10.jpg?v=1" loading="lazy" alt="Wrestling and sports memorabilia" onerror="this.remove()"></picture><figcaption class="ph-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v4a6 6 0 0 1-12 0z"/><path d="M9 14h6M8 21h8M12 14v7"/></svg><span class="l">MEMORABILIA</span><span class="s">PHOTO 06</span></figcaption></figure>
           <div class="item-bar"><span class="no">06</span> WRESTLING &amp; SPORTS <span class="sel">▶</span></div>
           <p class="item-desc"><b>Rare &amp; vintage.</b> Autographed and game-used sports &amp; wrestling collectibles.</p>
@@ -332,33 +336,33 @@
       </div>
 
       <!-- We Carry — systems catalog -->
-      <div class="carry" data-reveal>
+      <div class="carry" id="carry" data-reveal>
         <div class="carry-head">
           <span class="tag" style="margin-bottom:0">Everything Under One Roof</span>
           <h3 class="carry-title">WHAT WE CARRY</h3>
           <p class="sub" style="margin:8px 0 0">Games, consoles, collectibles, cards, comics and memorabilia — here's the full lineup, from the Magnavox Odyssey to the latest Switch 2.</p>
         </div>
         <div class="carry-acc">
-          <details class="cacc">
-            <summary>Video Games &amp; Accessories <span class="cc-sub">Atari → Switch 2</span></summary>
+          <details class="cacc" id="carry-games">
+            <summary>Video Games & Accessories <span class="cc-sub">Atari → Switch 2</span></summary>
             <div class="cacc-body"><ul>
-              <li>Classic &amp; modern games — every system</li>
+              <li>Classic & modern games — every system</li>
               <li>PC games</li>
-              <li>Controllers, power cords &amp; AV cables</li>
+              <li>Controllers, power cords & AV cables</li>
               <li>Accessories for all systems</li>
               <li>Strategy guides</li>
               <li>Video game manuals</li>
             </ul></div>
           </details>
-          <details class="cacc">
+          <details class="cacc" id="carry-nintendo">
             <summary>Nintendo <span class="cc-sub">NES → Switch 2</span></summary>
             <div class="cacc-body"><ul>
-              <li>NES</li><li>SNES</li><li>Game Boy (Color &amp; Advance)</li>
+              <li>NES</li><li>SNES</li><li>Game Boy (Color & Advance)</li>
               <li>Virtual Boy</li><li>N64</li><li>GameCube</li><li>DS</li>
               <li>Wii</li><li>3DS</li><li>Wii U</li><li>Switch</li><li>Switch 2</li>
             </ul></div>
           </details>
-          <details class="cacc">
+          <details class="cacc" id="carry-sony">
             <summary>Sony PlayStation</summary>
             <div class="cacc-body"><ul>
               <li>PlayStation</li><li>PlayStation 2</li><li>PSP</li>
@@ -366,27 +370,27 @@
               <li>PlayStation 5</li><li>PlayStation Portal</li>
             </ul></div>
           </details>
-          <details class="cacc">
+          <details class="cacc" id="carry-xbox">
             <summary>Microsoft Xbox</summary>
             <div class="cacc-body"><ul>
               <li>Xbox (Original)</li><li>Xbox 360</li><li>Xbox One</li>
               <li>Xbox Series X/S</li>
             </ul></div>
           </details>
-          <details class="cacc">
+          <details class="cacc" id="carry-sega">
             <summary>Sega</summary>
             <div class="cacc-body"><ul>
               <li>Master System</li><li>Genesis</li><li>Game Gear</li>
               <li>Sega CD</li><li>32X</li><li>Saturn</li><li>Dreamcast</li>
             </ul></div>
           </details>
-          <details class="cacc">
+          <details class="cacc" id="carry-atari">
             <summary>Atari</summary>
             <div class="cacc-body"><ul>
               <li>2600</li><li>5200</li><li>7800</li><li>Lynx</li><li>Jaguar</li>
             </ul></div>
           </details>
-          <details class="cacc">
+          <details class="cacc" id="carry-other">
             <summary>Other Systems</summary>
             <div class="cacc-body"><ul>
               <li>Magnavox Odyssey</li><li>ColecoVision</li><li>Intellivision</li>
@@ -394,47 +398,47 @@
               <li>Assorted Retrons</li>
             </ul></div>
           </details>
-          <details class="cacc">
-            <summary>Funko Pops &amp; Figures</summary>
+          <details class="cacc" id="carry-funko">
+            <summary>Funko Pops & Figures</summary>
             <div class="cacc-body"><ul>
-              <li>Funko Pops — movies, games &amp; sports</li>
-              <li>Action figures — vintage &amp; modern</li>
-              <li>Carded &amp; loose figures</li>
-              <li>Wrestling figures &amp; collectibles</li>
+              <li>Funko Pops — movies, games & sports</li>
+              <li>Action figures — vintage & modern</li>
+              <li>Carded & loose figures</li>
+              <li>Wrestling figures & collectibles</li>
             </ul></div>
           </details>
-          <details class="cacc">
+          <details class="cacc" id="carry-cards">
             <summary>Trading Cards</summary>
             <div class="cacc-body"><ul>
-              <li>Sports &amp; gaming cards</li>
+              <li>Sports & gaming cards</li>
               <li>Singles to sealed</li>
-              <li>Boxes &amp; packs</li>
-              <li>Autographed, rookie &amp; insert cards</li>
+              <li>Boxes & packs</li>
+              <li>Autographed, rookie & insert cards</li>
               <li>Game-used cards</li>
             </ul></div>
           </details>
-          <details class="cacc">
+          <details class="cacc" id="carry-comics">
             <summary>Comics</summary>
             <div class="cacc-body"><ul>
-              <li>Comic books — back issues &amp; new</li>
+              <li>Comic books — back issues & new</li>
             </ul></div>
           </details>
-          <details class="cacc">
-            <summary>Wrestling &amp; Sports Memorabilia</summary>
+          <details class="cacc" id="carry-memorabilia">
+            <summary>Wrestling & Sports Memorabilia</summary>
             <div class="cacc-body"><ul>
               <li>Autographed memorabilia</li>
               <li>Game-used memorabilia</li>
-              <li>Signed &amp; promo photos</li>
+              <li>Signed & promo photos</li>
               <li>Novelty items</li>
             </ul></div>
           </details>
-          <details class="cacc">
-            <summary>DVDs, Media &amp; More</summary>
+          <details class="cacc" id="carry-media">
+            <summary>DVDs, Media & More</summary>
             <div class="cacc-body"><ul>
-              <li>DVDs &amp; Blu-rays</li>
+              <li>DVDs & Blu-rays</li>
               <li>Vintage collectibles</li>
               <li>Novelty items</li>
-              <li>Phones &amp; tablets (iPhone, iPad, Android)</li>
+              <li>Phones & tablets (iPhone, iPad, Android)</li>
             </ul></div>
           </details>
         </div>
@@ -618,6 +622,6 @@
 
   </main>
 
-  <script src="/assets/js/main.js?v=19" defer></script>
+  <script src="/assets/js/main.js?v=22" defer></script>
 </body>
 </html>

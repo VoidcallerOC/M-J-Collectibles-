@@ -237,7 +237,7 @@
     applyFilter();
   }
 
-  /* ---------- Primary nav dropdowns (tap to open on touch) ---------- */
+  /* ---------- Primary nav dropdowns (chevron tap; hover still works) ---------- */
   var topnav = document.getElementById('topnav');
   if (topnav) {
     var drops = Array.prototype.slice.call(topnav.querySelectorAll('.tn-drop'));
@@ -245,20 +245,20 @@
       drops.forEach(function (d) {
         if (d === except) return;
         d.classList.remove('open');
-        var b = d.querySelector('.tn-btn'); if (b) b.setAttribute('aria-expanded', 'false');
+        var b = d.querySelector('.tn-chev'); if (b) b.setAttribute('aria-expanded', 'false');
       });
     }
     drops.forEach(function (d) {
-      var btn = d.querySelector('.tn-btn');
+      var btn = d.querySelector('.tn-chev');
       if (!btn) return;
       btn.addEventListener('click', function (e) {
         e.preventDefault();
+        e.stopPropagation();
         var willOpen = !d.classList.contains('open');
         closeAll(d);
         d.classList.toggle('open', willOpen);
         btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
       });
-      // Close after choosing a destination
       d.querySelectorAll('.tn-menu a').forEach(function (a) {
         a.addEventListener('click', function () { closeAll(null); });
       });
@@ -266,4 +266,14 @@
     document.addEventListener('click', function (e) { if (!topnav.contains(e.target)) closeAll(null); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(null); });
   }
+
+  /* ---------- Open a What-We-Carry accordion when its hash is used ---------- */
+  function applyHash() {
+    var id = (location.hash || '').replace(/^#/, '');
+    if (!id) return;
+    var el = document.getElementById(id);
+    if (el && el.tagName === 'DETAILS') el.open = true;
+  }
+  window.addEventListener('hashchange', applyHash);
+  applyHash();
 })();
