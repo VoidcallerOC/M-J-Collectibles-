@@ -506,6 +506,7 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
   .manual{ grid-template-columns:1fr; }
   .online-row{ grid-template-columns:1fr; }
   .visit-grid{ grid-template-columns:1fr; }
+  .tradein{ grid-template-columns:1fr; }
   .bonus{ grid-template-columns:1fr; }
   .bonus-copy{ order:1; }
   .bonus-art{ order:2; min-height:220px; border-right:0; border-bottom:0; border-top:3px solid var(--edge-dim); }
@@ -559,10 +560,10 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
 /* =========================================================
    TRADE-INS detail + ABOUT / SERVICES
    ========================================================= */
-.tradein{ display:grid; grid-template-columns:1fr; gap:22px; margin-top:28px;
+.tradein{ display:grid; grid-template-columns:minmax(280px,.85fr) 1.2fr; gap:22px; margin-top:28px;
   background:var(--panel); border:3px solid var(--edge); box-shadow:7px 7px 0 rgba(0,0,0,.6); padding:20px; }
-.flyer-wrap{ display:flex; justify-content:center; }
-.tradein .flyer{ width:230px; max-width:40vw; border:3px solid var(--edge-dim); box-shadow:5px 5px 0 rgba(0,0,0,.5); }
+.flyer-wrap{ display:flex; justify-content:center; align-items:flex-start; }
+.tradein .flyer{ width:100%; max-width:520px; border:3px solid var(--edge-dim); box-shadow:5px 5px 0 rgba(0,0,0,.5); }
 .tradein h3{ font-family:var(--ff-pixel); font-size:.72rem; color:var(--yellow); margin:0 0 12px; }
 .tradein-copy > p{ margin:0 0 12px; color:var(--dim); font-size:1.05rem; }
 .tradein-copy > p b{ color:var(--text); font-weight:400; }
@@ -584,7 +585,8 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
 .about-media .frame .cap{ position:absolute; top:0; left:0; z-index:2; font-family:var(--ff-pixel); font-size:.46rem; color:#06121a; background:var(--yellow); padding:4px 6px; }
 
 @media (max-width:820px){
-  .tradein .flyer{ width:220px; max-width:70vw; }
+  .tradein{ grid-template-columns:1fr; }
+  .tradein .flyer{ width:100%; max-width:none; }
   .about-grid{ grid-template-columns:1fr; }
   .about-media .frame{ flex:0 1 220px; min-width:160px; }
   .take-list{ grid-template-columns:1fr; }
