@@ -162,14 +162,14 @@
     var tstat = document.getElementById('termStat');
     if (tstat) { tstat.classList.toggle('on', open); tstat.classList.toggle('off', !open); tstat.textContent = open ? '● ONLINE' : '● OFFLINE'; }
 
-    // Highlight today's hours row
+    // Highlight today's hours row (single "open daily" line stays marked)
     var list = document.getElementById('hoursList');
-    if (list) list.querySelectorAll('.ln').forEach(function (li, i) { li.classList.toggle('today', i === day); });
+    if (list) list.querySelectorAll('.ln').forEach(function (li) { li.classList.add('today'); });
   }
   updateHours();
   setInterval(updateHours, 60 * 1000);
 
-  /* ---------- Contact form (composes an email to the shop) ---------- */
+  /* ---------- Contact form (FormSubmit → shop inbox) ---------- */
   var cform = document.getElementById('contactForm');
   if (cform) {
     var SHOP_EMAIL = 'rockythetockcat1@aol.com';
@@ -177,22 +177,58 @@
     cform.addEventListener('submit', function (e) {
       e.preventDefault();
       var status = document.getElementById('cformStatus');
+      var btn = cform.querySelector('button[type="submit"]');
       var name = val('cf-name'), email = val('cf-email'), phone = val('cf-phone'),
           type = val('cf-type') || 'Other Question', msg = val('cf-msg');
       if (!name || !email || !msg) {
         if (status) { status.className = 'cform-status err'; status.textContent = 'ADD YOUR NAME, EMAIL & MESSAGE'; }
         return;
       }
-      var subject = '[' + type + '] Website message from ' + name;
-      var body = 'Name: ' + name + '\n' +
-                 'Email: ' + email + '\n' +
-                 'Phone: ' + (phone || '—') + '\n' +
-                 'Type of request: ' + type + '\n\n' +
-                 msg + '\n';
-      if (status) { status.className = 'cform-status ok'; status.textContent = 'OPENING YOUR EMAIL APP…'; }
-      window.location.href = 'mailto:' + SHOP_EMAIL +
-        '?subject=' + encodeURIComponent(subject) +
-        '&body=' + encodeURIComponent(body);
+      var subjectEl = document.getElementById('cf-subject');
+      if (subjectEl) subjectEl.value = '[' + type + '] Website message from ' + name;
+      if (status) { status.className = 'cform-status'; status.textContent = 'SENDING…'; }
+      if (btn) btn.disabled = true;
+
+      var endpoint = cform.getAttribute('action');
+      var payload = {
+        name: name,
+        email: email,
+        phone: phone || '—',
+        _replyto: email,
+        type: type,
+        message: msg,
+        _subject: '[' + type + '] Website message from ' + name,
+        _template: 'table',
+        _captcha: 'false'
+      };
+
+      function mailtoFallback() {
+        var body = 'Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + (phone || '—') +
+          '\nType of request: ' + type + '\n\n' + msg + '\n';
+        window.location.href = 'mailto:' + SHOP_EMAIL +
+          '?subject=' + encodeURIComponent('[' + type + '] Website message from ' + name) +
+          '&body=' + encodeURIComponent(body);
+      }
+
+      fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function (res) { return res.json().then(function (data) { return { ok: res.ok, data: data }; }); })
+        .then(function (out) {
+          if (out.ok && out.data && out.data.success !== false) {
+            if (status) { status.className = 'cform-status ok'; status.textContent = 'MESSAGE SENT — WE\'LL GET BACK TO YOU'; }
+            cform.reset();
+          } else {
+            if (status) { status.className = 'cform-status ok'; status.textContent = 'OPENING YOUR EMAIL APP…'; }
+            mailtoFallback();
+          }
+        })
+        .catch(function () {
+          if (status) { status.className = 'cform-status ok'; status.textContent = 'OPENING YOUR EMAIL APP…'; }
+          mailtoFallback();
+        })
+        .finally(function () { if (btn) btn.disabled = false; });
     });
   }
 
