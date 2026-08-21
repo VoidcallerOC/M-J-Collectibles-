@@ -6,7 +6,9 @@ and vintage wrestling & sports memorabilia. *For all your retro-gaming and
 memorabilia needs.*
 
 A fast, static, single-page site — built to look distinct from a card shop, with
-a warm retro-collector look and an arcade-styled hero.
+a warm retro-collector look and an arcade-cabinet title screen (attract-mode
+photos behind PRESS START). Pixel type is reserved for the HUD and titles;
+hours, lists and forms stay readable.
 
 ## Structure
 
