@@ -23,40 +23,42 @@ landscape works best, ~1600px on the long edge is plenty.
 
 | File | Tile |
 |---|---|
-| `shop-16.jpg` | 01 — Retro & Modern Games |
-| `shop-1.jpg`  | 02 — Consoles & Accessories |
-| `shop-2.jpg`  | 03 — Funko Pops |
-| `shop-18.jpg` | 04 — Action Figures |
-| `shop-11.jpg` | 05 — Trading Cards |
-| `shop-10.jpg` | 06 — Wrestling & Sports Memorabilia |
+| `shop-10.jpg` | 01 — Retro & Modern Games (game-case wall) |
+| `shop-14.jpg` | 02 — Consoles (boxed systems: Atari, Wii, PS, Commodore) |
+| `shop-2.jpg`  | 03 — Funko Pops (the packed wall) |
+| `shop-20.jpg` | 04 — Action Figures (KISS / boxed figures) |
+| `shop-13.jpg` | 05 — Trading Cards (glass cases) |
+| `shop-16.jpg` | 06 — Wrestling & Sports (WWE figures + sports cards) |
+
+Attract-mode hero (title screen, looping): `shop-1` (aisle) → `shop-10` (games) → `shop-2` (Funko) → `shop-14` (consoles).
 
 ### Trade-In photos (`.tradein-photos`, in `#howto`)
 
 | File | Slot |
 |---|---|
-| `shop-15.jpg` | Trade-in examples |
-| `shop-16.jpg` | Retro games & collectibles traded in |
-| `shop-17.jpg` | The game wall |
-| `shop-18.jpg` | Collectibles on display |
-| `shop-19.jpg` | Inside the shop |
-| `shop-20.jpg` | Store display |
-
-> Note: `shop-16.jpg` and `shop-18.jpg` are shared between a Game Select tile
-> and a Trade-In photo slot (the same photo fits both contexts).
+| `shop-17.jpg` | Consoles / games wall |
+| `shop-16.jpg` | Wrestling figures & sports cards |
+| `shop-10.jpg` | The game-case wall |
+| `shop-18.jpg` | Funko / figures wall |
+| `shop-19.jpg` | Sports memorabilia wall |
+| `shop-20.jpg` | Boxed figures |
 
 ### Photo Mode gallery (`#photos`)
 
 | File | Frame |
 |---|---|
-| `shop-1.jpg`  | 01 — Storefront (large featured tile) |
-| `shop-2.jpg`  | 02 — Retro Wall |
-| `shop-3.jpg`  | 03 — Funko Wall |
-| `shop-14.jpg` | 04 — The Cases |
+| `shop-1.jpg`  | 01 — The Aisle |
+| `shop-2.jpg`  | 02 — Funko Wall |
+| `shop-3.jpg`  | 03 — Funko Racks |
+| `shop-14.jpg` | 04 — Consoles |
 | `shop-13.jpg` | 05 — Card Case |
-| `shop-12.jpg` | 06 — Memorabilia |
+| `shop-12.jpg` | 06 — Game Aisle |
 | `shop-7.jpg`  | 07 — Comics |
 | `shop-8.jpg`  | 08 — The Counter |
-| `shop-9.jpg`  | 09 — Autographs |
+| `shop-19.jpg` | 09 — Sports Wall |
+| `shop-4.jpg`  | 10 — The Floor |
+| `shop-5.jpg`  | 11 — The Aisles |
+| `shop-6.jpg`  | 12 — New Arrivals |
 
 ### Other photos
 
