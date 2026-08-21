@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/assets/css/styles.css?v=25" />
+  <link rel="stylesheet" href="/assets/css/styles.css?v=26" />
 
   <script type="application/ld+json">
   {
@@ -88,7 +88,9 @@
           <a href="#cat-funko">Funko Pops</a>
           <a href="#cat-figures">Figures</a>
           <a href="#cat-cards">Trading Cards</a>
+          <a href="#bonus">Wrestling — Bonus Stage</a>
           <a href="#cat-memorabilia">Wrestling & Sports</a>
+          <a href="#scores">High Scores</a>
           <a href="#carry">What We Carry</a>
           <a href="#photos">Inside the Shop</a>
           <a href="https://www.ebay.com/str/mjvideogamesct1" target="_blank" rel="noopener">eBay Store ↗</a>
@@ -114,7 +116,9 @@
         <a href="#cat-funko">Funko Pops</a>
         <a href="#cat-figures">Figures</a>
         <a href="#cat-cards">Trading Cards</a>
+        <a href="#bonus">Wrestling — Bonus Stage</a>
         <a href="#cat-memorabilia">Wrestling & Sports</a>
+        <a href="#scores">High Scores</a>
         <a href="#carry">What We Carry</a>
         <a href="#photos">Inside the Shop</a>
         <a href="https://www.ebay.com/str/mjvideogamesct1" target="_blank" rel="noopener">eBay Store ↗</a>
@@ -163,13 +167,17 @@
       </h1>
       <p class="credit px" data-reveal>FOR ALL YOUR RETRO-GAMING &amp; MEMORABILIA NEEDS</p>
 
-      <a class="press px blink" href="#select" data-reveal>▶ PRESS START</a>
+      <div class="boot-ctas" data-reveal>
+        <a class="press px blink" href="#select">▶ PRESS START</a>
+
+        <a class="coin-cta px" href="#visit">INSERT COIN</a>
+      </div>
 
       <nav class="menu scan-ui" id="mainMenu" aria-label="Main menu" data-reveal>
         <div class="menu-title">◄ MAIN MENU ►</div>
         <a href="#select"><span class="cur">▶</span> Shop <span class="k">01</span></a>
         <a href="#howto"><span class="cur">▶</span> Trade-Ins <span class="k">02</span></a>
-        <a href="#visit"><span class="cur">▶</span> Visit The Shop <span class="k">03</span></a>
+        <a href="#visit"><span class="cur">▶</span> Insert Coin <span class="k">03</span></a>
       </nav>
 
       <div class="hud-stats" data-reveal>
@@ -182,7 +190,7 @@
     <!-- Attract ticker -->
     <div class="attract" aria-hidden="true">
       <div class="attract-tr" id="attract">
-        <span>RETRO GAMES</span><span>CONSOLES</span><span>FUNKO POPS</span><span>ACTION FIGURES</span><span>TRADING CARDS</span><span>WRESTLING MEMORABILIA</span><span>AUTOGRAPHED &amp; GAME-USED</span><span>BUY · SELL · TRADE</span>
+        <span>RETRO GAMES</span><span>CONSOLES</span><span>FUNKO POPS</span><span>ACTION FIGURES</span><span>TRADING CARDS</span><span>BONUS STAGE · WRESTLING</span><span>AUTOGRAPHED &amp; GAME-USED</span><span>BUY · SELL · TRADE</span>
       </div>
     </div>
 
@@ -220,11 +228,39 @@
           <div class="item-bar"><span class="no">05</span> TRADING CARDS <span class="sel">▶</span></div>
           <p class="item-desc"><b>Singles to sealed.</b> Sports &amp; gaming cards — vintage to the latest sets.</p>
         </a>
-        <a class="item" id="cat-memorabilia" href="#carry-memorabilia" style="--c:var(--orange)" data-reveal>
+        <a class="item" id="cat-memorabilia" href="#bonus" style="--c:var(--orange)" data-reveal>
           <figure class="item-scr ph"><picture><source type="image/webp" srcset="/assets/img/photos/shop-16.webp?v=23"><img class="ph-img" src="/assets/img/photos/shop-16.jpg?v=23" loading="lazy" alt="Wrestling figures and sports cards" onerror="this.remove()"></picture><figcaption class="ph-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v4a6 6 0 0 1-12 0z"/><path d="M9 14h6M8 21h8M12 14v7"/></svg><span class="l">WRESTLING</span><span class="s">PHOTO 06</span></figcaption></figure>
           <div class="item-bar"><span class="no">06</span> WRESTLING &amp; SPORTS <span class="sel">▶</span></div>
-          <p class="item-desc"><b>Rare &amp; vintage.</b> Autographed and game-used sports &amp; wrestling collectibles.</p>
+          <p class="item-desc"><b>Rare &amp; vintage.</b> Largest pro wrestling selection in Connecticut — figures, DVDs, signed photos. Autographed and game-used sports &amp; wrestling collectibles.</p>
         </a>
+      </div>
+    </section>
+
+
+    <!-- ============ BONUS STAGE (wrestling) ============ -->
+    <section class="scene wrap" id="bonus">
+      <div class="scene-head">
+        <span class="tag" data-reveal>Bonus Stage</span>
+        <h2 class="h-scene" data-reveal>WREST<span class="y">LING</span></h2>
+        <p class="sub" data-reveal>The thing no other shop in this state can copy. Come for the figures, stay for the signed photos, DVDs and the stuff you stopped looking for years ago.</p>
+      </div>
+      <div class="bonus" data-reveal>
+        <figure class="bonus-art ph">
+          <picture>
+            <source type="image/webp" srcset="/assets/img/photos/shop-16.webp?v=23">
+            <img class="ph-img" src="/assets/img/photos/shop-16.jpg?v=23" loading="lazy" alt="Wrestling figures at M and J Video Games">
+          </picture>
+          <figcaption class="ph-cap"><span class="l">WRESTLING WALL</span></figcaption>
+        </figure>
+        <div class="bonus-copy">
+          <p class="bonus-kicker px">PLAYER 2 START</p>
+          <p class="bonus-claim">Largest selection of pro wrestling merchandise in Connecticut.</p>
+          <p>Thousands of wrestling figures, DVDs, autographed photos and promos — plus sports collectibles and game-used pieces. Not a thin shelf of the usual suspects. A wall.</p>
+          <div class="bonus-ctas">
+            <a class="abtn yel" href="#visit">INSERT COIN</a>
+            <a class="abtn gho" href="#howto">TRADE YOURS IN</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -332,6 +368,38 @@
           </div>
         </div>
       </div>
+    </section>
+
+
+    <!-- ============ HIGH SCORES ============ -->
+    <section class="scene wrap" id="scores">
+      <div class="scene-head">
+        <span class="tag" data-reveal>Hall of Fame</span>
+        <h2 class="h-scene" data-reveal>HIGH <span class="c">SCORES</span></h2>
+        <p class="sub" data-reveal>From the Yelp cabinet. Real people, real visits, no script.</p>
+      </div>
+      <ol class="scores" data-reveal>
+        <li class="score">
+          <span class="score-rank px">1ST</span>
+          <span class="score-who px">ERIK D.</span>
+          <p class="score-q">Insane collection from Atari 2600 to PS5 and all in between. Retro collector and general nerd heaven.</p>
+        </li>
+        <li class="score">
+          <span class="score-rank px">2ND</span>
+          <span class="score-who px">ALLISON J.</span>
+          <p class="score-q">An extremely large collection of basically anything you could want. Fun to look through the entire history of games right there on the shelves.</p>
+        </li>
+        <li class="score">
+          <span class="score-rank px">3RD</span>
+          <span class="score-who px">JAMIE H.</span>
+          <p class="score-q">Fair prices and a wide variety. The owner was more than helpful.</p>
+        </li>
+      </ol>
+      <p class="scores-foot" data-reveal>
+        <a href="https://www.yelp.com/biz/m-and-j-video-games-and-collectibles-southington-9" target="_blank" rel="noopener">Yelp 3.7 · 34 reviews</a>
+        <span class="dot-sep">/</span>
+        <a href="https://www.ebay.com/str/mjvideogamesct1" target="_blank" rel="noopener">eBay 98.8% · 2.1k sold</a>
+      </p>
     </section>
 
     <!-- ============ ABOUT / SERVICES ============ -->
@@ -448,9 +516,10 @@
           <details class="cacc" id="carry-memorabilia">
             <summary>Wrestling & Sports Memorabilia</summary>
             <div class="cacc-body"><ul>
-              <li>Autographed memorabilia</li>
-              <li>Game-used memorabilia</li>
-              <li>Signed & promo photos</li>
+              <li>Thousands of wrestling figures</li>
+              <li>Wrestling DVDs</li>
+              <li>Autographed photos & promos</li>
+              <li>Game-used sports memorabilia</li>
               <li>Novelty items</li>
             </ul></div>
           </details>
@@ -536,23 +605,18 @@
     <!-- ============ VISIT ============ -->
     <section class="scene wrap" id="visit">
       <div class="scene-head">
-        <span class="tag" data-reveal>Find The Shop</span>
+        <span class="tag" data-reveal>Insert Coin</span>
         <h2 class="h-scene" data-reveal>VISIT <span class="y">THE SHOP</span></h2>
+        <p class="sub" data-reveal>Open every day. No appointment. Bring a list or just dig.</p>
       </div>
       <div class="visit-grid">
         <div class="term scan-ui" data-reveal>
           <div class="bar"><span>SHOP_STATUS.EXE</span><span>_</span></div>
           <span class="ln"><span class="k">STATUS:</span> <span id="termStatus">checking…</span></span>
           <span class="stat off" id="termStat">● SCANNING</span>
-          <span class="ln" style="margin-top:14px"><span class="k">HOURS //</span></span>
+                    <span class="ln" style="margin-top:14px"><span class="k">HOURS //</span></span>
           <div id="hoursList">
-            <span class="ln"><span class="k">SUN</span> 11:00 AM – 7:00 PM</span>
-            <span class="ln"><span class="k">MON</span> 11:00 AM – 7:00 PM</span>
-            <span class="ln"><span class="k">TUE</span> 11:00 AM – 7:00 PM</span>
-            <span class="ln"><span class="k">WED</span> 11:00 AM – 7:00 PM</span>
-            <span class="ln"><span class="k">THU</span> 11:00 AM – 7:00 PM</span>
-            <span class="ln"><span class="k">FRI</span> 11:00 AM – 7:00 PM</span>
-            <span class="ln"><span class="k">SAT</span> 11:00 AM – 7:00 PM</span>
+            <span class="ln today">OPEN DAILY 11:00 AM – 7:00 PM</span>
           </div>
           <span class="ln blink" style="margin-top:12px">▮</span>
         </div>
@@ -566,6 +630,7 @@
             <span class="vi">☎</span>
             <span><span class="vk">CALL / TEXT</span><br /><span class="vv">860-479-9223</span></span>
           </a>
+          <a class="abtn yel visit-coin" href="https://maps.google.com/?q=M%26J+Video+Games+Collectibles+847+Queen+St+Southington+CT+06489" target="_blank" rel="noopener">INSERT COIN — DIRECTIONS</a>
           <div class="map">
             <iframe
               title="Map to M&amp;J Video Games &amp; Collectibles, Southington CT"
@@ -585,7 +650,11 @@
         <p class="sub" data-reveal>Questions, trade-in offers, special orders — send it over and we'll get back to you. Prefer to talk? Call or text <a href="tel:+18604799223">860-479-9223</a>.</p>
       </div>
       <div class="contact-wrap" data-reveal>
-        <form class="cform term" id="contactForm" novalidate>
+        <form class="cform term" id="contactForm" action="https://formsubmit.co/ajax/rockythetockcat1@aol.com" method="POST" novalidate>
+          <input type="hidden" name="_subject" id="cf-subject" value="Website message from M&J site" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="bar"><span>CONTACT.EXE</span><span>_</span></div>
           <div class="cfield">
             <label for="cf-name">NAME</label>
@@ -626,12 +695,14 @@
     <footer class="footer">
       <div class="wrap">
         <div class="go px">GAME OVER?</div>
-        <div class="cont px blink">CONTINUE ► COME VISIT</div>
+        <a class="cont px blink" href="#visit">CONTINUE ► INSERT COIN</a>
         <div class="credits">
           <a href="#select">GAME SELECT</a>
           <a href="#howto">BUY·SELL·TRADE</a>
           <a href="#about">ABOUT</a>
           <a href="#online">SHOP ONLINE</a>
+          <a href="#bonus">WRESTLING</a>
+          <a href="#scores">HIGH SCORES</a>
           <a href="#visit">VISIT</a>
           <a href="#contact">CONTACT</a>
           <a href="https://www.ebay.com/str/mjvideogamesct1" target="_blank" rel="noopener">EBAY</a>
@@ -644,6 +715,6 @@
 
   </main>
 
-  <script src="/assets/js/main.js?v=24" defer></script>
+  <script src="/assets/js/main.js?v=26" defer></script>
 </body>
 </html>
