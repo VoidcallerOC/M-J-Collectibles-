@@ -1,56 +1,45 @@
 # M&J Video Games & Collectibles
 
-Marketing site for **M&J Video Games & Collectibles** — Southington, CT's home for
-retro & modern video games, consoles, Funko Pops, action figures, trading cards,
-and vintage wrestling & sports memorabilia. *For all your retro-gaming and
-memorabilia needs.*
+Marketing site for **M&J Video Games & Collectibles** in Southington, Connecticut. It is a fast, static, single-page site with a retro arcade-cabinet visual system, real shop photography, store details, trade-in information, a map, and a customer contact form.
 
-A fast, static, single-page site — built to look distinct from a card shop, with
-a warm retro-collector look and an arcade-cabinet title screen (attract-mode
-photos behind PRESS START). Pixel type is reserved for the HUD and titles;
-hours, lists and forms stay readable.
+## Project structure
 
-## Structure
-
-```
-index.html            All page content & sections
-assets/css/styles.css Design system + layout
-assets/js/main.js     Nav, scroll reveals, live "open now" hours, hero effects
-assets/img/           Brand marks (favicon.svg, mark.svg)
-vercel.json           Static hosting config (clean URLs, asset caching)
+```text
+index.html            All page content, local business data, and structured data
+assets/css/styles.css Design tokens, visual system, responsive layout, and components
+assets/js/main.js     Navigation, store-hours status, gallery filter, and contact flow
+assets/img/           Brand assets and shop photography
+vercel.json           Static-host routing, caching, and security headers
 ```
 
-## Store details (single source of truth)
+## Store data to maintain
 
-| | |
-|---|---|
-| **Address** | 847 Queen St, Southington, CT 06489 |
-| **Phone** | (860) 479-9223 |
-| **Hours** | 11:00 AM – 7:00 PM, every day (Mon–Sun) |
-| **eBay** | https://www.ebay.com/str/mjvideogamesct1 |
-| **Facebook** | https://www.facebook.com/MJVideoGamesandSportsCollectibles |
+| Item | Current value | Where to update |
+|---|---|---|
+| Address | 847 Queen St, Unit 12, Southington, CT 06489 | `index.html`: visible Visit section, Google Maps links, and JSON-LD address |
+| Phone | (860) 479-9223 | Search `index.html` for `860-479-9223` |
+| Hours | 11:00 AM–7:00 PM, daily | `assets/js/main.js` `HOURS` array, the visible Visit-section fallback text, and JSON-LD hours |
+| Contact inbox | rockythetockcat1@aol.com | `index.html` form action and mailto fallback; `assets/js/main.js` fallback address |
+| Social and marketplace links | eBay, Facebook, Instagram | Search `index.html` for the relevant service URL |
 
-## Editing common things
+> **Keep business data synchronized.** The site deliberately contains visible, structured-data, and operational fallbacks so it remains useful even when JavaScript is unavailable. When an address, phone number, hours, or inbox changes, update every location shown in the table.
 
-- **Hours** — edit the `HOURS` array near the top of `assets/js/main.js` *and* the
-  matching `<li>` rows in the Visit section of `index.html`. The "Open now / Closed"
-  badge is computed live from `HOURS`.
-- **What we carry** — edit the `.cat` cards in the `#carry` section of `index.html`.
-- **Phone / address** — search `index.html` for `860-479-9223` and `847 Queen St`
-  (they also appear in the structured-data block in `<head>`).
-- **Colors / fonts** — all design tokens live in `:root` at the top of
-  `assets/css/styles.css`.
+## Editing site content
+
+Product categories, trade-in content, gallery captions, and calls to action all live in `index.html`. Color and typography tokens are at the top of `assets/css/styles.css`. The photo-slot workflow is documented in [`assets/img/photos/README.md`](assets/img/photos/README.md).
+
+The contact form posts to FormSubmit and shows a yellow fallback notice only when it opens the visitor’s mail application; this is **not** a confirmed message delivery. After a contact configuration change, submit one controlled test and confirm the recipient receives it before publishing.
 
 ## Local preview
 
-Any static server works, e.g.:
+Run any static server from the repository root, then open the shown local address in a browser.
 
-```
+```bash
 python3 -m http.server 8000
-# then open http://localhost:8000
 ```
 
-## Deploy
+## Deployment and final launch check
 
-Static site — deploy the repo root to any static host (Vercel, Netlify, etc.).
-`vercel.json` enables clean URLs and long-cache headers on `/assets/*`.
+Deploy the repository root to a static host. The included Vercel configuration enables clean URLs, immutable caching for versioned local assets, and headers that permit only this site’s required fonts, map frame, and contact provider.
+
+Before announcing a release, verify the official domain is attached to the intended deployment, test the contact form, review the address and hours, and test a shared link preview. The configured canonical and social URLs should be changed only after the final official domain is connected.

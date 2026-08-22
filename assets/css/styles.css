@@ -152,8 +152,6 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
   background:var(--panel-2); border:3px solid var(--edge); box-shadow:6px 6px 0 rgba(0,0,0,.6);
   flex-direction:column; padding:6px; display:none; }
 .tn-drop:hover .tn-menu, .tn-drop.open .tn-menu{ display:flex; }
-.tn-menu a{ font-family:var(--ff-term); font-size:1.08rem; letter-spacing:.06em; color:var(--text); padding:12px 12px; display:block; white-space:nowrap; min-height:44px; box-sizing:border-box; }
-.tn-menu a:hover{ color:#06121a; background:var(--cyan); }
 @media (hover: hover) and (pointer: fine){
   .tn-drop:hover .tn-menu{ display:flex; }
   .tn-drop:hover .tn-car{ transform:rotate(180deg); }
@@ -733,6 +731,7 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
 .cbtn:active{ transform:translate(3px,3px); box-shadow:2px 2px 0 rgba(0,0,0,.6); }
 .cform-status{ font-family:var(--ff-pixel); font-size:.5rem; line-height:1.5; }
 .cform-status.ok{ color:var(--green); }
+.cform-status.warn{ color:var(--yellow); }
 .cform-status.err{ color:var(--red); }
 .cform-alt{ margin:16px 0 0; font-family:var(--ff-term); font-size:1.14rem; color:var(--dim); }
 .cform-alt a{ color:var(--cyan); word-break:break-all; }

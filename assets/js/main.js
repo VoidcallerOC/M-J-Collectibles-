@@ -178,8 +178,9 @@
       e.preventDefault();
       var status = document.getElementById('cformStatus');
       var btn = cform.querySelector('button[type="submit"]');
-      var name = val('cf-name'), email = val('cf-email'), phone = val('cf-phone'),
-          type = val('cf-type') || 'Other Question', msg = val('cf-msg');
+      var clean = function (value) { return value.replace(/[\r\n]+/g, ' ').trim(); };
+      var name = clean(val('cf-name')), email = clean(val('cf-email')), phone = clean(val('cf-phone')),
+          type = clean(val('cf-type')) || 'Other Question', msg = val('cf-msg');
       if (!name || !email || !msg) {
         if (status) { status.className = 'cform-status err'; status.textContent = 'ADD YOUR NAME, EMAIL & MESSAGE'; }
         return;
@@ -187,6 +188,7 @@
       var subjectEl = document.getElementById('cf-subject');
       if (subjectEl) subjectEl.value = '[' + type + '] Website message from ' + name;
       if (status) { status.className = 'cform-status'; status.textContent = 'SENDING…'; }
+      cform.setAttribute('aria-busy', 'true');
       if (btn) btn.disabled = true;
 
       var endpoint = cform.getAttribute('action');
@@ -220,15 +222,15 @@
             if (status) { status.className = 'cform-status ok'; status.textContent = 'MESSAGE SENT — WE\'LL GET BACK TO YOU'; }
             cform.reset();
           } else {
-            if (status) { status.className = 'cform-status ok'; status.textContent = 'OPENING YOUR EMAIL APP…'; }
+            if (status) { status.className = 'cform-status warn'; status.textContent = 'OPENING YOUR EMAIL APP — PLEASE SEND THE DRAFT'; }
             mailtoFallback();
           }
         })
         .catch(function () {
-          if (status) { status.className = 'cform-status ok'; status.textContent = 'OPENING YOUR EMAIL APP…'; }
+          if (status) { status.className = 'cform-status warn'; status.textContent = 'OPENING YOUR EMAIL APP — PLEASE SEND THE DRAFT'; }
           mailtoFallback();
         })
-        .finally(function () { if (btn) btn.disabled = false; });
+        .finally(function () { cform.setAttribute('aria-busy', 'false'); if (btn) btn.disabled = false; });
     });
   }
 
