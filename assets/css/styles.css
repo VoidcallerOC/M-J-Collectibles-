@@ -531,12 +531,12 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
   .gframe:nth-child(1){ grid-column:span 2; }
 }
 @media (max-width:620px){
-  :root{ --bezel:10px; }
+  :root{ --bezel:12px; }
   html{ scroll-padding-top: 118px; }
   body{ font-size:21px; }
-  .wrap{ padding:0 22px; }
-  .scene{ padding:28px 22px 42px; scroll-margin-top:118px; }
-  .scene-head{ padding-left:2px; }
+  .wrap{ padding:0 32px; }
+  .scene{ padding:32px 32px 48px; scroll-margin-top:118px; }
+  .scene-head{ padding-left:0; }
   .h-scene{ font-size:1.02rem; line-height:1.5; text-shadow:3px 3px 0 rgba(0,0,0,.6); }
   .tag{ font-size:.52rem; }
   .hud{
@@ -568,7 +568,7 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
   .gframe:nth-child(1){ grid-column:span 1; grid-row:auto; }
   .gframe .ph{ aspect-ratio:4/3; }
   .gframe:nth-child(1) .ph{ aspect-ratio:5/4; height:auto; }
-  #photos.scene.wrap{ padding-left:10px; padding-right:10px; }
+  #photos.scene.wrap{ padding-left:18px; padding-right:18px; }
   .crt-bezel{ border-radius:10px; box-shadow:inset 0 0 0 2px #14161f, inset 0 0 40px 6px rgba(0,0,0,.8), 0 0 0 100vmax #000; }
   .manual, .online-row, .program-steps, .program-cols{ gap:12px; }
   .mbox, .oc, .pstep, .pcard{ box-shadow:4px 4px 0 rgba(0,0,0,.5); }
