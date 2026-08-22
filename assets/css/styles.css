@@ -741,10 +741,10 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
 
 @media (hover:hover) and (pointer:fine){
   html, html *{
-    cursor: url("/assets/img/cursors/arrow-24.png") 3 1, auto;
+    cursor: url("/assets/img/cursors/arrow-24.png") 3 1, default !important;
   }
-  a, button, summary, select, label,
-  .press, .coin-cta, .item, .gframe, .cbtn, .hud-menu-btn{
-    cursor: url("/assets/img/cursors/arrow-24.png") 3 1, pointer;
+  input:not([type=button]):not([type=submit]):not([type=checkbox]):not([type=radio]),
+  textarea{
+    cursor: text !important;
   }
 }
