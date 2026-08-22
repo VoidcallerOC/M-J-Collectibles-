@@ -739,59 +739,12 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
 .cform-alt a{ color:var(--cyan); word-break:break-all; }
 .hp{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
 
-/* =========================================================
-   SPRITE CURSOR — gold pixel pointer (fine pointers only)
-   ========================================================= */
 @media (hover:hover) and (pointer:fine){
-  html.css-sprite-cursor, html.css-sprite-cursor *{
-    cursor: url("/assets/img/cursors/arrow-48.png") 6 2, auto;
+  html, html *{
+    cursor: url("/assets/img/cursors/arrow-24.png") 3 1, auto;
   }
-  html.css-sprite-cursor a,
-  html.css-sprite-cursor button,
-  html.css-sprite-cursor summary,
-  html.css-sprite-cursor select,
-  html.css-sprite-cursor label,
-  html.css-sprite-cursor .press,
-  html.css-sprite-cursor .coin-cta,
-  html.css-sprite-cursor .item,
-  html.css-sprite-cursor .gframe,
-  html.css-sprite-cursor .cbtn,
-  html.css-sprite-cursor .hud-menu-btn{
-    cursor: url("/assets/img/cursors/pointer-48.png") 6 2, pointer;
+  a, button, summary, select, label,
+  .press, .coin-cta, .item, .gframe, .cbtn, .hud-menu-btn{
+    cursor: url("/assets/img/cursors/arrow-24.png") 3 1, pointer;
   }
-  html.sprite-cur, html.sprite-cur *{ cursor:none !important; }
-}
-#sprite-cur{
-  position:fixed; left:0; top:0; width:48px; height:48px;
-  pointer-events:none; z-index:9999; display:none;
-  will-change:transform;
-  filter: drop-shadow(0 0 4px rgba(51,230,212,.55)) drop-shadow(1px 1px 0 #000);
-}
-html.sprite-cur #sprite-cur{ display:block; }
-#sprite-cur img{
-  position:absolute; inset:0; width:48px; height:48px;
-  image-rendering:pixelated; image-rendering:crisp-edges;
-}
-#sprite-cur .c-hand{ opacity:0; }
-#sprite-cur.on .c-arrow{ opacity:0; }
-#sprite-cur.on .c-hand{ opacity:1; }
-#sprite-cur.punch img{ transform:scale(.82); transform-origin:6px 2px; }
-@keyframes curPulse{
-  0%,100%{ filter: drop-shadow(0 0 3px rgba(51,230,212,.4)) drop-shadow(1px 1px 0 #000); }
-  50%{ filter: drop-shadow(0 0 7px rgba(255,210,62,.85)) drop-shadow(1px 1px 0 #000); }
-}
-html.sprite-cur:not(.rm) #sprite-cur{ animation:curPulse 1.1s steps(2) infinite; }
-.cur-spark{
-  position:fixed; width:4px; height:4px; pointer-events:none; z-index:9998;
-  background:var(--yellow); box-shadow:0 0 6px var(--cyan);
-  image-rendering:pixelated;
-  animation:curSpark .28s steps(4) forwards;
-}
-@keyframes curSpark{
-  0%{ opacity:1; transform:translate(0,0) scale(1); }
-  100%{ opacity:0; transform:translate(var(--sx), var(--sy)) scale(.4); }
-}
-@media (prefers-reduced-motion:reduce){
-  html.sprite-cur:not(.rm) #sprite-cur{ animation:none; }
-  .cur-spark{ display:none; }
 }
