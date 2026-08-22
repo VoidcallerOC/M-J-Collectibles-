@@ -290,4 +290,24 @@
   }
   window.addEventListener('hashchange', applyHash);
   applyHash();
+
+  /* Gold click sparks — desktop only, no cursor overlay */
+  (function () {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    document.addEventListener('pointerdown', function (e) {
+      if (e.pointerType && e.pointerType !== 'mouse') return;
+      for (var i = 0; i < 6; i++) {
+        var s = document.createElement('i');
+        s.className = 'cur-spark';
+        var ang = (Math.PI * 2 * i) / 6;
+        s.style.left = (e.clientX - 2) + 'px';
+        s.style.top = (e.clientY - 2) + 'px';
+        s.style.setProperty('--sx', Math.round(Math.cos(ang) * 14) + 'px');
+        s.style.setProperty('--sy', Math.round(Math.sin(ang) * 14) + 'px');
+        document.body.appendChild(s);
+        setTimeout(function (n) { n.remove(); }, 300, s);
+      }
+    });
+  })();
 })();
