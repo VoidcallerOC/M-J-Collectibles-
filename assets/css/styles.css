@@ -462,8 +462,14 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
 .vrow .vk{ font-family:var(--ff-pixel); font-size:.44rem; color:var(--dim); }
 .vrow .vv{ font-size:1.12rem; color:var(--text); }
 .visit-coin{ justify-content:center; text-align:center; width:100%; }
-.map{ height:190px; position:relative; border:3px solid var(--edge-dim); box-shadow:5px 5px 0 rgba(0,0,0,.5); overflow:hidden; }
-.map iframe{ width:100%; height:100%; border:0; display:block; filter:hue-rotate(190deg) saturate(.7) brightness(.85); }
+.map{ height:240px; position:relative; border:3px solid var(--edge-dim); box-shadow:5px 5px 0 rgba(0,0,0,.5); overflow:hidden; background:#0a1122; }
+.map iframe{ width:100%; height:100%; border:0; display:block; }
+.map-open{
+  position:absolute; left:0; right:0; bottom:0; z-index:2;
+  font-family:var(--ff-pixel); font-size:.42rem; letter-spacing:.04em;
+  color:var(--yellow); background:rgba(6,14,26,.88);
+  text-align:center; padding:9px 8px;
+}
 
 /* =========================================================
    FOOTER — game over / credits
@@ -519,6 +525,7 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
   .manual{ grid-template-columns:1fr; }
   .online-row{ grid-template-columns:1fr; }
   .visit-grid{ grid-template-columns:1fr; }
+  .map{ height:280px; }
   .tradein{ grid-template-columns:1fr; }
   .bonus{ grid-template-columns:1fr; }
   .bonus-copy{ order:1; }
