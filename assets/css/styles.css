@@ -393,13 +393,7 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
   background:var(--panel); border:3px solid var(--edge-dim);
   box-shadow:5px 5px 0 rgba(0,0,0,.5); padding:16px 18px;
 }
-.score:nth-child(1){ border-color:var(--yellow); }
-.score:nth-child(2){ border-color:var(--edge-dim); }
-.score:nth-child(3){ border-color:var(--edge-dim); }
-.score-rank{ grid-area:rank; font-family:var(--ff-pixel); font-size:.7rem; color:var(--dim); padding-top:4px; }
-.score:nth-child(1) .score-rank{ color:var(--yellow); }
-.score:nth-child(2) .score-rank{ color:var(--dim); }
-.score:nth-child(3) .score-rank{ color:var(--dim); }
+.score-rank{ grid-area:rank; font-family:var(--ff-pixel); font-size:.7rem; color:var(--text); padding-top:4px; }
 .score-who{ grid-area:who; font-family:var(--ff-pixel); font-size:.56rem; color:var(--text); }
 .score-q{ grid-area:q; margin:0; font-size:1.16rem; line-height:1.4; color:var(--dim); text-wrap:pretty; }
 .scores-foot{
@@ -440,9 +434,11 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
 .oc:hover{ transform:translate(-2px,-2px); }
 .oc .oh{ font-family:var(--ff-pixel); font-size:.5rem; color:var(--dim); }
 .oc h3{ font-family:var(--ff-pixel); font-size:.9rem; margin:0; }
-.oc.ebay h3{ color:var(--text); } .oc.fb h3{ color:var(--text); } .oc.ig h3{ color:var(--text); }
+.oc.ebay h3, .oc.ebay .go{ color:#33e6d4; }
+.oc.fb h3, .oc.fb .go{ color:#4d9bff; }
+.oc.ig h3, .oc.ig .go{ color:#ff4fa3; }
 .oc p{ margin:0; font-size:1.08rem; color:var(--dim); }
-.oc .go{ margin-top:4px; font-family:var(--ff-pixel); font-size:.56rem; color:var(--cyan); }
+.oc .go{ margin-top:4px; font-family:var(--ff-pixel); font-size:.56rem; }
 
 /* =========================================================
    VISIT — terminal readout
