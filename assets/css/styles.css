@@ -681,6 +681,16 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
 
 
 /* =========================================================
+   SERVICES — repairs / consignment / charity auctions
+   ========================================================= */
+.manual + .program,
+.bonus + .program{ margin-top:22px; }
+#consign .program-steps{ margin-bottom:8px; }
+#consign .take-list{ margin-top:12px; }
+#repairs .manual{ margin-bottom:0; }
+
+
+/* =========================================================
    TRADE-IN PHOTOS — strip of example trade-in photos
    ========================================================= */
 .tradein-photos{

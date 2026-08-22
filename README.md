@@ -1,6 +1,6 @@
 # M&J Video Games & Collectibles
 
-Marketing site for **M&J Video Games & Collectibles** in Southington, Connecticut. It is a fast, static, single-page site with a retro arcade-cabinet visual system, real shop photography, store details, trade-in information, a map, and a customer contact form.
+Marketing site for **M&J Video Games & Collectibles** in Southington, Connecticut. It is a fast, static, single-page site with a retro arcade-cabinet visual system, real shop photography, store details, trade-in information, repairs, eBay consignment, charity auctions, a map, and a customer contact form.
 
 ## Project structure
 
@@ -26,7 +26,7 @@ vercel.json           Static-host routing, caching, and security headers
 
 ## Editing site content
 
-Product categories, trade-in content, gallery captions, and calls to action all live in `index.html`. Color and typography tokens are at the top of `assets/css/styles.css`. The photo-slot workflow is documented in [`assets/img/photos/README.md`](assets/img/photos/README.md).
+Product categories, trade-in content, repairs, consignment, charity auctions, gallery captions, and calls to action all live in `index.html`. Color and typography tokens are at the top of `assets/css/styles.css`. The photo-slot workflow is documented in [`assets/img/photos/README.md`](assets/img/photos/README.md).
 
 The contact form posts to FormSubmit and shows a yellow fallback notice only when it opens the visitor’s mail application; this is **not** a confirmed message delivery. After a contact configuration change, submit one controlled test and confirm the recipient receives it before publishing.
 
