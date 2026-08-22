@@ -179,6 +179,20 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
 .h-scene .c{ color:var(--yellow); } .h-scene .y{ color:var(--yellow); } .h-scene .m{ color:var(--yellow); }
 .sub{ font-size:1.2rem; line-height:1.45; color:var(--dim); max-width:60ch; margin:14px 0 0; text-wrap:pretty; }
 
+/* One job per surface — chrome that restates the next section goes */
+.boot .coin,
+.boot .menu,
+.hud-stats,
+.attract,
+.tag,
+.ph-cap,
+.item-desc,
+.item-bar .no,
+.mbox .lv,
+.tradein-photos{ display:none !important; }
+.scene{ padding:clamp(28px,5vw,56px) 0; }
+.scene-head{ margin-bottom:18px; }
+
 /* Generic pixel panel */
 .panel{ background:var(--panel); border:3px solid var(--edge); box-shadow:7px 7px 0 rgba(0,0,0,.6); }
 
