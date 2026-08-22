@@ -748,3 +748,16 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
     cursor: text !important;
   }
 }
+.cur-spark{
+  position:fixed; width:4px; height:4px; pointer-events:none; z-index:9998;
+  background:var(--yellow);
+  image-rendering:pixelated;
+  animation:curSpark .28s steps(4) forwards;
+}
+@keyframes curSpark{
+  0%{ opacity:1; transform:translate(0,0) scale(1); }
+  100%{ opacity:0; transform:translate(var(--sx), var(--sy)) scale(.35); }
+}
+@media (prefers-reduced-motion:reduce){
+  .cur-spark{ display:none; }
+}
