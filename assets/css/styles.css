@@ -189,7 +189,7 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
 .mbox .lv,
 .tradein-photos{ display:none !important; }
 .scene{ padding:clamp(28px,5vw,56px) 0; }
-.scene-head{ margin-bottom:18px; }
+.scene-head{ margin-bottom:18px; padding-left:8px; padding-right:8px; }
 
 /* Generic pixel panel */
 .panel{ background:var(--panel); border:3px solid var(--edge); box-shadow:7px 7px 0 rgba(0,0,0,.6); }
@@ -536,11 +536,11 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
   body{ font-size:21px; }
   .wrap{ padding:0 32px; }
   .scene{ padding:32px 32px 48px; scroll-margin-top:118px; }
-  .scene-head{ padding-left:0; }
+  .scene-head, .carry-head, .program-head{ padding-left:4px; padding-right:10px; }
   .h-scene{ font-size:1.02rem; line-height:1.5; text-shadow:3px 3px 0 rgba(0,0,0,.6); }
   .tag{ font-size:.52rem; }
   .hud{
-    flex-wrap:wrap; gap:0; padding:8px 8px 0;
+    flex-wrap:wrap; gap:0; padding:10px 16px 0;
     border-bottom:0;
   }
   .hud .oneup{ display:none; }
@@ -549,7 +549,7 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
     display:flex; order:3; flex:1 0 100%; justify-content:center;
     font-size:.48rem; color:var(--cyan); padding:9px 8px 10px;
     border-top:2px solid var(--edge-dim); min-height:40px; align-items:center;
-    margin:4px -8px 0;
+    margin:4px -16px 0;
   }
   .hud-menu-btn{
     display:inline-flex; align-items:center; justify-content:center;
@@ -642,7 +642,7 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
 
 /* We Carry — systems catalog */
 .carry{ margin-top:26px; scroll-margin-top:calc(var(--bezel) + 118px); }
-.carry-head{ margin-bottom:18px; }
+.carry-head{ margin-bottom:18px; padding-left:8px; padding-right:8px; }
 /* What We Carry — collapsible dropdown categories */
 .carry-acc{ display:grid; gap:10px; }
 .cacc{ background:var(--panel); border:3px solid var(--edge-dim); box-shadow:5px 5px 0 rgba(0,0,0,.5); scroll-margin-top:calc(var(--bezel) + 118px); }
