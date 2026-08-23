@@ -115,11 +115,16 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
   padding:10px clamp(16px,4vw,34px);
   background:var(--screen-2); border-bottom:0;
 }
-.hud .oneup{ font-family:var(--ff-pixel); font-size:.62rem; color:var(--red); }
+.hud .oneup{ font-family:var(--ff-pixel); font-size:.62rem; color:var(--red); position:relative; z-index:1; }
 .hud .oneup b{ color:var(--text); }
-.hud-brand{ font-family:var(--ff-pixel); font-size:.72rem; color:var(--text); display:flex; align-items:center; justify-content:center; gap:8px; flex:1; text-align:center; }
+.hud-brand{
+  font-family:var(--ff-pixel); font-size:.72rem; color:var(--text);
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  position:absolute; left:50%; top:50%; transform:translate(-50%, -50%);
+  text-align:center; white-space:nowrap; pointer-events:auto; z-index:0;
+}
 .hud-brand .amp{ color:var(--yellow); }
-.hud-right{ display:flex; align-items:center; gap:16px; }
+.hud-right{ display:flex; align-items:center; gap:16px; position:relative; z-index:1; }
 .hud-hours{
   font-family:var(--ff-term); font-size:1.05rem; color:var(--dim);
   letter-spacing:.06em; white-space:nowrap;
@@ -128,7 +133,7 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
 .hud-status .dot{ width:9px; height:9px; }
 .hud-status.on{ color:var(--green); } .hud-status.on .dot{ background:var(--green); box-shadow:0 0 8px var(--green); }
 .hud-status.off{ color:var(--red); } .hud-status.off .dot{ background:var(--red); }
-.hud-call{ font-family:var(--ff-pixel); font-size:.56rem; color:var(--cyan); }
+.hud-call{ font-family:var(--ff-pixel); font-size:.56rem; color:var(--cyan); position:relative; z-index:1; }
 .hud-menu-btn{ display:none; font-family:var(--ff-pixel); font-size:.6rem; color:var(--text); padding:10px 12px; border:2px solid var(--edge); min-height:44px; }
 
 /* Primary nav bar with dropdown menus */
@@ -544,7 +549,10 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
     border-bottom:0;
   }
   .hud .oneup{ display:none; }
-  .hud-brand{ font-size:.52rem; justify-content:flex-start; flex:1; min-width:0; }
+  .hud-brand{
+    position:static; transform:none; left:auto; top:auto;
+    font-size:.52rem; justify-content:flex-start; flex:1; min-width:0;
+  }
   .hud-call{
     display:flex; order:3; flex:1 0 100%; justify-content:center;
     font-size:.48rem; color:var(--cyan); padding:9px 8px 10px;
