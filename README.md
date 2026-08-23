@@ -19,7 +19,7 @@ vercel.json           Static-host routing, caching, and security headers
 | Address | 847 Queen St, Unit 12, Southington, CT 06489 | `index.html`: visible Visit section, Google Maps links, and JSON-LD address |
 | Phone | (860) 479-9223 | Search `index.html` for `860-479-9223` |
 | Hours | 11:00 AM–7:00 PM, daily | `assets/js/main.js` `HOURS` array, the visible Visit-section fallback text, and JSON-LD hours |
-| Contact inbox | rockythetockcat1@aol.com | `index.html` form action and mailto fallback; `assets/js/main.js` fallback address |
+| Contact inbox | rockytherockcat1@aol.com | `index.html` form action and mailto fallback; `assets/js/main.js` fallback address |
 | Social and marketplace links | eBay, Facebook, Instagram | Search `index.html` for the relevant service URL |
 
 > **Keep business data synchronized.** The site deliberately contains visible, structured-data, and operational fallbacks so it remains useful even when JavaScript is unavailable. When an address, phone number, hours, or inbox changes, update every location shown in the table.
