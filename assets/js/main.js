@@ -172,7 +172,7 @@
   /* ---------- Contact form (FormSubmit → shop inbox) ---------- */
   var cform = document.getElementById('contactForm');
   if (cform) {
-    var SHOP_EMAIL = 'rockytherockcat1@aol.com';
+    var SHOP_EMAIL = 'rockythetockcat1@aol.com';
     var val = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
     cform.addEventListener('submit', function (e) {
       e.preventDefault();

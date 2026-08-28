@@ -1,0 +1,60 @@
+/* Mobile HUD stability: keep the logo, hours, live-status tracker, and menu separate. */
+@media (max-width:620px){
+  .hud{
+    display:grid;
+    grid-template-columns:minmax(0, 1fr) auto;
+    grid-template-areas:
+      "brand menu"
+      "hours status"
+      "call call";
+    align-items:center;
+    column-gap:10px;
+    row-gap:5px;
+    padding:10px 16px 0;
+  }
+  .hud-brand{
+    grid-area:brand;
+    min-width:0;
+    justify-content:flex-start;
+    overflow:hidden;
+    white-space:nowrap;
+    font-size:clamp(.42rem, 2.55vw, .52rem);
+    line-height:1.35;
+  }
+  .hud-right{ display:contents; }
+  .hud-menu-btn{
+    display:inline-flex;
+    grid-area:menu;
+    align-items:center;
+    justify-content:center;
+    padding:8px 10px;
+    min-height:40px;
+    min-width:40px;
+  }
+  .hud-hours{
+    grid-area:hours;
+    justify-self:start;
+    white-space:nowrap;
+    font-size:.88rem;
+    line-height:1.2;
+  }
+  .hud-status{
+    grid-area:status;
+    justify-self:end;
+    white-space:nowrap;
+    font-size:clamp(.38rem, 2.25vw, .46rem) !important;
+    gap:5px;
+  }
+  .hud-status .dot{ width:7px; height:7px; flex:0 0 7px; }
+  .hud-call{
+    grid-area:call;
+    width:100%;
+    box-sizing:border-box;
+    margin:3px 0 0;
+  }
+}
+@media (max-width:360px){
+  .hud-brand{ font-size:.4rem; }
+  .hud-status{ font-size:.36rem !important; }
+  .hud-hours{ font-size:.8rem; }
+}
