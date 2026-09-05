@@ -1,21 +1,5 @@
-<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="M&amp;J">
-  <rect width="64" height="64" rx="14" fill="#1E1A3A"/>
-  <rect width="64" height="64" rx="14" fill="url(#bg)" fill-opacity=".9"/>
-  <!-- joystick base -->
-  <ellipse cx="32" cy="50" rx="18" ry="6" fill="#0B5F56"/>
-  <!-- shaft -->
-  <rect x="28.5" y="26" width="7" height="22" rx="3.5" fill="#0d0b1a"/>
-  <!-- ball -->
-  <circle cx="32" cy="22" r="12" fill="url(#ball)"/>
-  <circle cx="27.5" cy="17.5" r="3.2" fill="#fff" fill-opacity=".55"/>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#241F45"/>
-      <stop offset="1" stop-color="#141127"/>
-    </linearGradient>
-    <radialGradient id="ball" cx="0.38" cy="0.32" r="0.8">
-      <stop offset="0" stop-color="#FF7A4D"/>
-      <stop offset="1" stop-color="#C63E1B"/>
-    </radialGradient>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="M&J">
+  <rect width="32" height="32" rx="6" fill="#0a0e1a"/>
+  <text x="17.2" y="23.6" text-anchor="middle" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="12" font-weight="900" fill="#3a1800">M&J</text>
+  <text x="16" y="22.4" text-anchor="middle" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="12" font-weight="900" fill="#FFD200">M&J</text>
 </svg>
