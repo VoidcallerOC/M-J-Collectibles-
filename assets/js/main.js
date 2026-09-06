@@ -185,6 +185,10 @@
         if (status) { status.className = 'cform-status err'; status.textContent = 'ADD YOUR NAME, EMAIL & MESSAGE'; }
         return;
       }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        if (status) { status.className = 'cform-status err'; status.textContent = 'ENTER A VALID EMAIL ADDRESS'; }
+        return;
+      }
       var subjectEl = document.getElementById('cf-subject');
       if (subjectEl) subjectEl.value = '[' + type + '] Website message from ' + name;
       if (status) { status.className = 'cform-status'; status.textContent = 'SENDING…'; }
@@ -212,10 +216,13 @@
           '&body=' + encodeURIComponent(body);
       }
 
+      var controller = window.AbortController ? new AbortController() : null;
+      var requestTimeout = controller ? window.setTimeout(function () { controller.abort(); }, 12000) : null;
       fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
+        signal: controller ? controller.signal : undefined
       }).then(function (res) { return res.json().then(function (data) { return { ok: res.ok, data: data }; }); })
         .then(function (out) {
           if (out.ok && out.data && out.data.success !== false) {
@@ -230,7 +237,11 @@
           if (status) { status.className = 'cform-status warn'; status.textContent = 'OPENING YOUR EMAIL APP — PLEASE SEND THE DRAFT'; }
           mailtoFallback();
         })
-        .finally(function () { cform.setAttribute('aria-busy', 'false'); if (btn) btn.disabled = false; });
+        .finally(function () {
+          if (requestTimeout) window.clearTimeout(requestTimeout);
+          cform.setAttribute('aria-busy', 'false');
+          if (btn) btn.disabled = false;
+        });
     });
   }
 
