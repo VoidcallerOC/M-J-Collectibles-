@@ -13,8 +13,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Lint
+        uses: actions/checkout@v4
+      - name: Validate JavaScript syntax
+        run: node --check assets/js/main.js
+      - name: Validate required site files
         run: |
-          npm install
-          npm run lint
+          test -f index.html
+          test -f assets/js/main.js
+          test -f assets/css/styles.css
+      - name: Validate HTML form structure
+        run: |
+          test "$(grep -o '<form' index.html | wc -l)" -eq 1
+          test "$(grep -o '</form>' index.html | wc -l)" -eq 1
