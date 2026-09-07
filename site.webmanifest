@@ -1,0 +1,16 @@
+{
+  "name": "M&J Video Games & Collectibles",
+  "short_name": "M&J Video Games",
+  "description": "Retro and modern video games, collectibles, repairs, trade-ins, and memorabilia in Southington, CT.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0e1a",
+  "theme_color": "#0a0e1a",
+  "icons": [
+    {
+      "src": "/assets/img/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

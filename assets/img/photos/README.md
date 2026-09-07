@@ -1,17 +1,15 @@
 # Shop photos
 
 Every photo on the site lives in this folder. The page references each file
-by its exact name in `index.html`; until a file exists, its slot shows a
-labelled placeholder (the `<img>` has `onerror="this.remove()"`, so a missing
-file just falls back to the placeholder).
+by its exact name in `index.html`; keep the filename and update its `?v=N`
+cache-busting query parameter when replacing a published image.
 
 ## How images are referenced
 
 - **Game Select tiles** (`#select` section) — category cards, displayed in a
   3-column grid. The hero image of each card.
-- **Trade-In section** (`#howto`) — a strip of example trade-in photos
-  (`.tradein-photos`), plus the `flyer-trade.jpg` and `flyer-bst.jpg` flyers.
-- **About section** (`#about`) — the owners photo and the buy/sell/trade flyer.
+- **Trade-In section** (`#howto`) — the `flyer-trade.jpg` trade-in flyer.
+- **About section** (`#about`) — the owners photo.
 - **Photo Mode gallery** (`#photos`) — the "Inside the Shop" grid.
 
 All filenames use the `shop-N.jpg` pattern (N = 1–20). Photos are JPG,
@@ -23,57 +21,47 @@ landscape works best, ~1600px on the long edge is plenty.
 
 | File | Tile |
 |---|---|
-| `shop-16.jpg` | 01 — Retro & Modern Games |
-| `shop-1.jpg`  | 02 — Consoles & Accessories |
-| `shop-2.jpg`  | 03 — Funko Pops |
-| `shop-18.jpg` | 04 — Action Figures |
-| `shop-11.jpg` | 05 — Trading Cards |
-| `shop-10.jpg` | 06 — Wrestling & Sports Memorabilia |
+| `shop-10.jpg` | 01 — Retro & Modern Games (game-case wall) |
+| `shop-14.jpg` | 02 — Consoles (boxed systems: Atari, Wii, PS, Commodore) |
+| `shop-2.jpg`  | 03 — Funko Pops (the packed wall) |
+| `shop-20.jpg` | 04 — Action Figures (KISS / boxed figures) |
+| `shop-13.jpg` | 05 — Trading Cards (glass cases) |
+| `shop-16.jpg` | 06 — Wrestling & Sports (WWE figures + sports cards) |
 
-### Trade-In photos (`.tradein-photos`, in `#howto`)
-
-| File | Slot |
-|---|---|
-| `shop-15.jpg` | Trade-in examples |
-| `shop-16.jpg` | Retro games & collectibles traded in |
-| `shop-17.jpg` | The game wall |
-| `shop-18.jpg` | Collectibles on display |
-| `shop-19.jpg` | Inside the shop |
-| `shop-20.jpg` | Store display |
-
-> Note: `shop-16.jpg` and `shop-18.jpg` are shared between a Game Select tile
-> and a Trade-In photo slot (the same photo fits both contexts).
+Attract-mode hero (title screen, looping): `shop-1` (aisle) → `shop-10` (games) → `shop-2` (Funko) → `shop-14` (consoles).
 
 ### Photo Mode gallery (`#photos`)
 
 | File | Frame |
 |---|---|
-| `shop-1.jpg`  | 01 — Storefront (large featured tile) |
-| `shop-2.jpg`  | 02 — Retro Wall |
-| `shop-3.jpg`  | 03 — Funko Wall |
-| `shop-14.jpg` | 04 — The Cases |
+| `shop-1.jpg`  | 01 — The Aisle |
+| `shop-2.jpg`  | 02 — Funko Wall |
+| `shop-3.jpg`  | 03 — Funko Racks |
+| `shop-14.jpg` | 04 — Consoles |
 | `shop-13.jpg` | 05 — Card Case |
-| `shop-12.jpg` | 06 — Memorabilia |
+| `shop-12.jpg` | 06 — Game Aisle |
 | `shop-7.jpg`  | 07 — Comics |
 | `shop-8.jpg`  | 08 — The Counter |
-| `shop-9.jpg`  | 09 — Autographs |
+| `shop-19.jpg` | 09 — Sports Wall |
+| `shop-4.jpg`  | 10 — The Floor |
+| `shop-5.jpg`  | 11 — The Aisles |
+| `shop-6.jpg`  | 12 — New Arrivals |
 
 ### Other photos
 
-| File | Where |
+| File | Current use |
 |---|---|
 | `about-owners.jpg` | About section — the owners |
-| `flyer-bst.jpg`    | About section — buy/sell/trade flyer |
 | `flyer-trade.jpg`  | Trade-In section — trade-in flyer |
+| `flyer-bst.jpg`    | Retained source asset; not currently linked from the page |
 
-## Unused / spare files
+## Spare files
 
-These exist in the folder but are not currently referenced by the page
-(kept as spares or from earlier layouts):
+Any image not listed in the maps above is a spare or retained source asset.
+Do not delete it until you have confirmed it is not needed for a future gallery,
+flyer, or social-media update.
 
-- `shop-4.jpg`, `shop-5.jpg`, `shop-6.jpg`
-
-> `shop-21.jpg` was removed — it was a byte-identical duplicate of
+> `shop-21.jpg` was removed because it was a byte-identical duplicate of
 > `shop-13.jpg` (Card Case) and appeared as a redundant gallery tile.
 
 ## Swapping a photo
@@ -88,7 +76,7 @@ add a matching `<figure>` in the relevant section of `index.html`.
 
 ## Image loading notes
 
-- Gallery/trade-in images use `loading="lazy"` so they don't block initial paint.
-- The Game Select hero tile images and the logo load eagerly (above the fold).
+- Gallery images use `loading="lazy"` so they don't block initial paint.
+- The first title-screen image uses `fetchpriority="high"`; other hero and gallery images load lazily.
 - All `/assets/*` responses are sent with a long-lived immutable cache header
   (see `vercel.json`); always bump `?v=` when replacing a file.
