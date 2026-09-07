@@ -167,7 +167,7 @@
   // quick-contact rows (call/text + Facebook Messenger) instead.
   var contactForm = document.getElementById('contactForm');
   if (contactForm) {
-    var CONTACT_EMAIL = 'info@mjvideogames.com';   // set the shop email here
+    var CONTACT_EMAIL = 'rockytherockcat1@aol.com'; // verified shop inbox
     var statusEl = document.getElementById('contactStatus');
 
     function setStatus(msg, kind) {
