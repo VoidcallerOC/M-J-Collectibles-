@@ -6,6 +6,7 @@ Marketing site for **M&J Video Games & Collectibles** in Southington, Connecticu
 
 ```text
 index.html            All page content, local business data, and structured data
+flyer-src.html        Editable source for the trade-in flyer exported to assets/img/photos/flyer-trade.*
 assets/css/styles.css Design tokens, visual system, responsive layout, and components
 assets/js/main.js     Navigation, store-hours status, gallery filter, and contact flow
 assets/img/           Brand assets and shop photography
@@ -29,6 +30,8 @@ vercel.json           Static-host routing, caching, and security headers
 Product categories, trade-in content, repairs, consignment, charity auctions, gallery captions, and calls to action all live in `index.html`. Color and typography tokens are at the top of `assets/css/styles.css`. The photo-slot workflow is documented in [`assets/img/photos/README.md`](assets/img/photos/README.md).
 
 The contact form posts to FormSubmit and shows a yellow fallback notice only when it opens the visitor’s mail application; this is **not** a confirmed message delivery. After a contact configuration change, submit one controlled test and confirm the recipient receives it before publishing.
+
+The trade-in flyer is maintained in [`flyer-src.html`](flyer-src.html). The website displays the rendered `assets/img/photos/flyer-trade.jpg` and WebP export, so update the source and regenerate both exports together when the flyer changes. Do not remove `flyer-src.html` as an unused page; it is an editable design artifact rather than a public site route.
 
 ## Local preview
 
