@@ -769,3 +769,8 @@ button{ font-family:inherit; cursor:pointer; border:0; background:none; color:in
 @media (prefers-reduced-motion:reduce){
   .cur-spark{ display:none; }
 }
+
+/* Forge-CT attribution */
+.forge-attribution { margin: .65rem 0 0; color: inherit; font-family: var(--ff-pixel); font-size: .46rem; line-height: 2; opacity: .72; }
+.forge-attribution a { color: inherit; text-underline-offset: 2px; }
+.forge-attribution a:hover, .forge-attribution a:focus-visible { color: var(--yellow); opacity: 1; }
